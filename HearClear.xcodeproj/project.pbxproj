@@ -15,6 +15,18 @@
 		375971EC15F45DCF00924643 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 375971EB15F45DCF00924643 /* AppDelegate.m */; };
 		375971EF15F45DCF00924643 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 375971ED15F45DCF00924643 /* MainStoryboard.storyboard */; };
 		375971F215F45DCF00924643 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 375971F115F45DCF00924643 /* ViewController.m */; };
+		375971FC15F45DE700924643 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971F815F45DE700924643 /* AudioToolbox.framework */; };
+		375971FE15F45DE700924643 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971FA15F45DE700924643 /* AVFoundation.framework */; };
+		375971FF15F45DE700924643 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971FB15F45DE700924643 /* CoreLocation.framework */; };
+		3759720A15F45E3A00924643 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3759720815F45E3A00924643 /* MainViewController.m */; };
+		3759721015F45E4D00924643 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3759720E15F45E4D00924643 /* AboutViewController.m */; };
+		3759721115F45E4D00924643 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3759720F15F45E4D00924643 /* AboutViewController.xib */; };
+		3759721415F45F5C00924643 /* FoursquareNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3759721315F45F5C00924643 /* FoursquareNetworkController.m */; };
+		3759721715F4617A00924643 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3759721615F4617A00924643 /* AuthenticationViewController.m */; };
+		37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4564315F468A100A76BFF /* VenuesViewController.m */; };
+		37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564515F4690800A76BFF /* connect-black@2x.png */; };
+		37A4564815F4690800A76BFF /* connect-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564615F4690800A76BFF /* connect-black.png */; };
+		37A4565115F479BD00A76BFF /* HCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4565015F479BD00A76BFF /* HCUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +43,24 @@
 		375971EE15F45DCF00924643 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		375971F015F45DCF00924643 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		375971F115F45DCF00924643 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		375971F815F45DE700924643 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		375971FA15F45DE700924643 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		375971FB15F45DE700924643 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3759720715F45E3A00924643 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3759720815F45E3A00924643 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3759720D15F45E4D00924643 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		3759720E15F45E4D00924643 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		3759720F15F45E4D00924643 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		3759721215F45F5C00924643 /* FoursquareNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareNetworkController.h; sourceTree = "<group>"; };
+		3759721315F45F5C00924643 /* FoursquareNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareNetworkController.m; sourceTree = "<group>"; };
+		3759721515F4617A00924643 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		3759721615F4617A00924643 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		37A4564215F468A100A76BFF /* VenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
+		37A4564315F468A100A76BFF /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
+		37A4564515F4690800A76BFF /* connect-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-black@2x.png"; sourceTree = "<group>"; };
+		37A4564615F4690800A76BFF /* connect-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-black.png"; sourceTree = "<group>"; };
+		37A4564F15F479BD00A76BFF /* HCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCUtils.h; sourceTree = "<group>"; };
+		37A4565015F479BD00A76BFF /* HCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375971FC15F45DE700924643 /* AudioToolbox.framework in Frameworks */,
+				375971FE15F45DE700924643 /* AVFoundation.framework in Frameworks */,
+				375971FF15F45DE700924643 /* CoreLocation.framework in Frameworks */,
 				375971DC15F45DCF00924643 /* UIKit.framework in Frameworks */,
 				375971DE15F45DCF00924643 /* Foundation.framework in Frameworks */,
 				375971E015F45DCF00924643 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +100,9 @@
 		375971DA15F45DCF00924643 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				375971F815F45DE700924643 /* AudioToolbox.framework */,
+				375971FA15F45DE700924643 /* AVFoundation.framework */,
+				375971FB15F45DE700924643 /* CoreLocation.framework */,
 				375971DB15F45DCF00924643 /* UIKit.framework */,
 				375971DD15F45DCF00924643 /* Foundation.framework */,
 				375971DF15F45DCF00924643 /* CoreGraphics.framework */,
@@ -77,6 +113,16 @@
 		375971E115F45DCF00924643 /* HearClear */ = {
 			isa = PBXGroup;
 			children = (
+				37A4564E15F479A900A76BFF /* Model */,
+				37A4564915F4690B00A76BFF /* Assets */,
+				3759720C15F45E4000924643 /* About */,
+				3759720615F45E2300924643 /* Main */,
+				3759720515F45E1500924643 /* Venue Sampling */,
+				3759720415F45E1000924643 /* Checkin */,
+				3759720315F45E0A00924643 /* Authentication */,
+				3759720215F45DFE00924643 /* Sampling Support */,
+				3759720115F45DF800924643 /* Backend Networking */,
+				3759720015F45DF100924643 /* Foursquare Networking */,
 				375971EA15F45DCF00924643 /* AppDelegate.h */,
 				375971EB15F45DCF00924643 /* AppDelegate.m */,
 				375971ED15F45DCF00924643 /* MainStoryboard.storyboard */,
@@ -96,6 +142,91 @@
 				375971E915F45DCF00924643 /* HearClear-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3759720015F45DF100924643 /* Foursquare Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3759721215F45F5C00924643 /* FoursquareNetworkController.h */,
+				3759721315F45F5C00924643 /* FoursquareNetworkController.m */,
+			);
+			name = "Foursquare Networking";
+			sourceTree = "<group>";
+		};
+		3759720115F45DF800924643 /* Backend Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Backend Networking";
+			sourceTree = "<group>";
+		};
+		3759720215F45DFE00924643 /* Sampling Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Sampling Support";
+			sourceTree = "<group>";
+		};
+		3759720315F45E0A00924643 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3759721515F4617A00924643 /* AuthenticationViewController.h */,
+				3759721615F4617A00924643 /* AuthenticationViewController.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		3759720415F45E1000924643 /* Checkin */ = {
+			isa = PBXGroup;
+			children = (
+				37A4564215F468A100A76BFF /* VenuesViewController.h */,
+				37A4564315F468A100A76BFF /* VenuesViewController.m */,
+			);
+			name = Checkin;
+			sourceTree = "<group>";
+		};
+		3759720515F45E1500924643 /* Venue Sampling */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Venue Sampling";
+			sourceTree = "<group>";
+		};
+		3759720615F45E2300924643 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3759720715F45E3A00924643 /* MainViewController.h */,
+				3759720815F45E3A00924643 /* MainViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		3759720C15F45E4000924643 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				3759720D15F45E4D00924643 /* AboutViewController.h */,
+				3759720E15F45E4D00924643 /* AboutViewController.m */,
+				3759720F15F45E4D00924643 /* AboutViewController.xib */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		37A4564915F4690B00A76BFF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				37A4564515F4690800A76BFF /* connect-black@2x.png */,
+				37A4564615F4690800A76BFF /* connect-black.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		37A4564E15F479A900A76BFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37A4564F15F479BD00A76BFF /* HCUtils.h */,
+				37A4565015F479BD00A76BFF /* HCUtils.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +282,9 @@
 			files = (
 				375971E615F45DCF00924643 /* InfoPlist.strings in Resources */,
 				375971EF15F45DCF00924643 /* MainStoryboard.storyboard in Resources */,
+				3759721115F45E4D00924643 /* AboutViewController.xib in Resources */,
+				37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */,
+				37A4564815F4690800A76BFF /* connect-black.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +298,12 @@
 				375971E815F45DCF00924643 /* main.m in Sources */,
 				375971EC15F45DCF00924643 /* AppDelegate.m in Sources */,
 				375971F215F45DCF00924643 /* ViewController.m in Sources */,
+				3759720A15F45E3A00924643 /* MainViewController.m in Sources */,
+				3759721015F45E4D00924643 /* AboutViewController.m in Sources */,
+				3759721415F45F5C00924643 /* FoursquareNetworkController.m in Sources */,
+				3759721715F4617A00924643 /* AuthenticationViewController.m in Sources */,
+				37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */,
+				37A4565115F479BD00A76BFF /* HCUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +419,7 @@
 				375971F715F45DCF00924643 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
