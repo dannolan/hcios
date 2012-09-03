@@ -43,7 +43,7 @@
     FoursquareNetworkController *fsq = [[FoursquareNetworkController alloc] init];
     fsq.delegate = self;
     
-    [fsq objectForVenueSearchAtLocation:[locationManager location]];
+    [fsq queryVenuesForLocation:[locationManager location]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -80,7 +80,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     //MAGIC NUMBER
     return 1;
@@ -88,7 +87,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     if([self.venueArray count] == 0)
         return 1;
@@ -109,7 +107,7 @@
         //cell.accessoryType = UITableView
     }else{
         NSDictionary *venueDict = [self.venueArray objectAtIndex:indexPath.row];
-
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = [venueDict objectForKey:@"name"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@m", [venueDict objectForKey:@"distance"]];
     }
@@ -163,30 +161,22 @@
     
 }
 -(void)FSQVenueReturnVenues:(NSArray *)venues{
-    //NSLog(@"Returned venues");
-    //NSLog(@"Venues returned: %@", [venues description]);
+
     self.venueArray = venues;
+    NSLog(@"Venue List: %@", [self.venueArray description]);
+    //Update table on main thread
+    [locationManager stopUpdatingLocation];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
 
     });
-    
-    //[self.tableView ]
-    //[self.view setNeedsDisplay];
-    //[self.tableView ];
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
 }
 
 @end

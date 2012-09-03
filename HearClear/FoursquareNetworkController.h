@@ -25,6 +25,5 @@
 +(void)storeFoursquareToken:(NSString *)foursquareToken;
 +(NSString*)foursquareToken;
 
--(void)objectForVenueSearchAtLocation:(CLLocation*)location;
-
+-(void)queryVenuesForLocation:(CLLocation *)location;
 @end

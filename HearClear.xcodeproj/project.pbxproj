@@ -27,6 +27,7 @@
 		37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564515F4690800A76BFF /* connect-black@2x.png */; };
 		37A4564815F4690800A76BFF /* connect-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564615F4690800A76BFF /* connect-black.png */; };
 		37A4565115F479BD00A76BFF /* HCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4565015F479BD00A76BFF /* HCUtils.m */; };
+		37A4565415F4968F00A76BFF /* VenueDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4565315F4968F00A76BFF /* VenueDetailControllerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		37A4564615F4690800A76BFF /* connect-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-black.png"; sourceTree = "<group>"; };
 		37A4564F15F479BD00A76BFF /* HCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCUtils.h; sourceTree = "<group>"; };
 		37A4565015F479BD00A76BFF /* HCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCUtils.m; sourceTree = "<group>"; };
+		37A4565215F4968F00A76BFF /* VenueDetailControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueDetailControllerViewController.h; sourceTree = "<group>"; };
+		37A4565315F4968F00A76BFF /* VenueDetailControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailControllerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 			children = (
 				37A4564215F468A100A76BFF /* VenuesViewController.h */,
 				37A4564315F468A100A76BFF /* VenuesViewController.m */,
+				37A4565215F4968F00A76BFF /* VenueDetailControllerViewController.h */,
+				37A4565315F4968F00A76BFF /* VenueDetailControllerViewController.m */,
 			);
 			name = Checkin;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				3759721715F4617A00924643 /* AuthenticationViewController.m in Sources */,
 				37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */,
 				37A4565115F479BD00A76BFF /* HCUtils.m in Sources */,
+				37A4565415F4968F00A76BFF /* VenueDetailControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,8 +16,4 @@
 }
 
 
-
--(IBAction)displayAuthenticateScreen:(id)sender;
--(IBAction)displayCheckinScreen:(id)sender;
-
 @end

@@ -18,10 +18,11 @@
 
 
 
--(void)objectForVenueSearchAtLocation:(CLLocation *)location{
+-(void)queryVenuesForLocation:(CLLocation *)location{
     
     NSString *latValue = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *lonValue = [NSString stringWithFormat:@"%F", location.coordinate.longitude];
+    NSLog(@"Token: %@", [FoursquareNetworkController foursquareToken]);
     
     
     NSURLRequest *venueRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/venues/search?oauth_token=%@&ll=%@,%@",kAPIv2BaseURL,[FoursquareNetworkController foursquareToken],latValue,lonValue]]];
