@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FoursquareNetworkController.h"
+#import "FSNetwork.h"
 @interface AuthenticationViewController : UIViewController<UIWebViewDelegate>
 {
    IBOutlet UIWebView *myWebView;

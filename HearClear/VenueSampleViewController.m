@@ -34,7 +34,8 @@
     [super viewDidLoad];
     NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]];
     soundValues = [[NSMutableArray alloc] init];
-
+    
+    NSLog(@"Dictionary provided: %@", [self.venueDictionary description]);
     //Settings to make sure AVAudiorecorder sampling is working correctly
     NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:kAudioFormatAppleIMA4],AVFormatIDKey,

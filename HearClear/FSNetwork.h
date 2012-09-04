@@ -44,8 +44,7 @@ typedef enum {
 +(NSString *)userID;
 +(BOOL)hasUserId;
 
-+(void)updateUserCredentials;
-
++(void)requestUserID;
 
 -(void)venuesForLocation:(CLLocation *)location;
 -(void)informationForVenue:(NSString *)venueId;

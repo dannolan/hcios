@@ -29,9 +29,11 @@
     if([[segue identifier] isEqualToString:@"sampleViewSegue"]){
         //we know that we've got an NSDictionary
         VenueSampleViewController *vc = [segue destinationViewController];
+        vc.venueDictionary = sender;
         
     }
 }
+
 
 - (void)viewDidLoad
 {

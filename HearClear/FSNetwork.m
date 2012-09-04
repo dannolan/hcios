@@ -105,6 +105,8 @@
 #pragma mark Checkin
 -(void)checkinForVenue:(NSString *)venueId{
     //Note: Checkin is a POST transaction
+    
+    
 }
 
 
@@ -138,6 +140,26 @@
 }
 
 #pragma mark User ID Methods
+
+
++(void)requestUserID{
+    NSString *userQueryString = [NSString stringWithFormat:@"%@oauth_token=%@", kUserInfoURL, [FSNetwork foursquareToken]];
+    
+    NSURLRequest *userInfoRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:userQueryString]];
+    
+    [NSURLConnection sendAsynchronousRequest:userInfoRequest queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error){
+            NSLog(@"ERROR!: %@", [error localizedDescription]);
+        }else{
+            NSError *parseError = nil;
+            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+            NSString *user_id = [[[jsonData objectForKey:@"response"] objectForKey:@"user"]objectForKey:@"id"];
+            [FSNetwork storeUserId:user_id];
+            NSLog(@"User id is: %@", user_id);
+        }
+    }];
+    
+}
 
 +(BOOL)hasUserId
 {

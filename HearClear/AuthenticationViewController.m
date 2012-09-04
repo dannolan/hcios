@@ -46,7 +46,9 @@
     NSLog(@"--> %@", URLString);
     if ([URLString rangeOfString:@"access_token="].location != NSNotFound) {
         NSString *accessToken = [[URLString componentsSeparatedByString:@"="] lastObject];
-        [FoursquareNetworkController storeFoursquareToken:accessToken];
+        [FSNetwork storeFoursquareToken:accessToken];
+        [FSNetwork requestUserID];
+        NSLog(@"User ID requesting");
         [self.presentingViewController dismissModalViewControllerAnimated:YES];
     }
     

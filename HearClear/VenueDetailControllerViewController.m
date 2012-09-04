@@ -74,6 +74,7 @@
     MainViewController *viewC = [vcs objectAtIndex:0];
     NSLog(@"ViewC is info: %@", [viewC description]);
     //TODO: Put up a 'LOADING' section
+    //[viewC per]
     [viewC performSegueWithIdentifier:@"sampleViewSegue" sender:self.venueDictionary];
     
 }
