@@ -11,6 +11,7 @@
 @interface VenuesViewController ()
 
 @property (strong, nonatomic) NSArray *venueArray;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation VenuesViewController
@@ -29,17 +30,22 @@
     [super viewDidLoad];
     self.venueArray = [[NSArray alloc] init];
     
-    locationManager = [[CLLocationManager alloc]init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    [locationManager startUpdatingLocation];
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     
+    [self.locationManager startUpdatingLocation];
+    //[self.locationManager startUpdatingLocation];
+    //CLLocation *location = [self.locationManager location];
+    NSLog(@"View did load fired");
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        NSLog(@"Viewing location manager: %@", [self.locationManager description]);
+        [self.locationManager startUpdatingLocation];
+        
+    }];
     
-    CLLocation *location = [locationManager location];
-    
-    NSLog(@"Current location is: %@", [location description]);
-
+    [self.tableView.pullToRefreshView triggerRefresh];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -58,7 +64,8 @@
     if([newLocation isKindOfClass:[NSNull class]]){
         
     }else{
-        [locationManager stopUpdatingLocation];
+        [self.locationManager stopUpdatingLocation];
+        
         FSNetwork *fsq = [[FSNetwork alloc] init];
         fsq.delegate = self;
         [fsq venuesForLocation:newLocation];
@@ -90,7 +97,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingLocation];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -112,8 +119,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if([self.venueArray count] == 0)
-        return 1;
     
     return [self.venueArray count];
 }
@@ -123,18 +128,12 @@
     //static NSString *CellIdentifier = @"VenueCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VenueCell"];
     
-    // Configure the cell...
-    if([self.venueArray count] == 0){
-        cell.textLabel.text = @"Loading...";
-        cell.detailTextLabel.text = @"";
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        //cell.accessoryType = UITableView
-    }else{
-        NSDictionary *venueDict = [self.venueArray objectAtIndex:indexPath.row];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    NSDictionary *venueDict = [self.venueArray objectAtIndex:indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = [venueDict objectForKey:@"name"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@m", [venueDict objectForKey:@"distance"]];
-    }
+    
     //cell.detailTextLabel.text = [[self.venueArray objectAtIndex:indexPath.row] objectForKey:@"distance"];
     
     return cell;
@@ -184,13 +183,16 @@
     if(type == VenueSearch){
         if(result == QuerySuccess){
             self.venueArray = object;
-            [locationManager stopUpdatingLocation];
+            [self.locationManager stopUpdatingLocation];
+
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView.pullToRefreshView stopAnimating];
                 [self.tableView reloadData];
             });
             
             
         }else{
+            NSLog(@"Something broken!");
             
         }
     }

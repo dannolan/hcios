@@ -10,10 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "FSNetwork.h"
 #import "VenueDetailControllerViewController.h"
+#import "SVPullToRefresh/SVPullToRefresh.h"
 
 @interface VenuesViewController : UITableViewController<CLLocationManagerDelegate, FSNetworkDelegate>
 {
-    CLLocationManager *locationManager;
     NSArray *myVenues;
 }
 
