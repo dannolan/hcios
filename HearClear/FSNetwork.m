@@ -56,19 +56,25 @@
     
     NSString *venueSearchURL = [NSString stringWithFormat:@"%@oauth_token=%@&ll=%@,%@", kVenueSearchURL, [FSNetwork foursquareToken], latValue, lonValue];
     
+    NSLog(@"API connection queried");
     NSURLRequest *venueSearchRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:venueSearchURL]];
     
-    [NSURLConnection sendAsynchronousRequest:venueSearchRequest queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest:venueSearchRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
        if(error)
        {
            NSLog(@"Error on API: %@", [error localizedDescription]);
        }else{
-           NSError *parseError = nil;
-           NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
-           //TODO: Handle parse error
-           
-           NSArray *venueArray = [HCUtils venuesFromFoursquareAPIResponse:jsonData];
-           [self.delegate fsResult:QuerySuccess forQueryType:VenueSearch withObject:venueArray];
+           NSLog(@"API Connection returned");
+           dispatch_async(dispatch_get_main_queue(), ^{
+               NSError *parseError = nil;
+               NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+               //TODO: Handle parse error
+               
+               NSArray *venueArray = [HCUtils venuesFromFoursquareAPIResponse:jsonData];
+               [self.delegate fsResult:QuerySuccess forQueryType:VenueSearch withObject:venueArray];
+               
+           });
+ 
            
        }
         
@@ -83,19 +89,22 @@
     
     
     NSURLRequest *venueInfoRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:venueInfoURL]];
-    
-    [NSURLConnection sendAsynchronousRequest:venueInfoRequest queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+    [NSURLConnection sendAsynchronousRequest:venueInfoRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if(error)
         {
             NSLog(@"Error: %@", [error localizedDescription]);
             
         }else{
-            NSError *parseError = nil;
-            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
-            NSDictionary *venueInfo = [HCUtils venueInfoFromFoursquareAPIResponse:jsonData];
-            
-            
-            [self.delegate fsResult:QuerySuccess forQueryType:VenueInfo withObject:venueInfo];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *parseError = nil;
+                NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                NSDictionary *venueInfo = [HCUtils venueInfoFromFoursquareAPIResponse:jsonData];
+                
+                
+                [self.delegate fsResult:QuerySuccess forQueryType:VenueInfo withObject:venueInfo];
+            });
+      
             
         }
     }];

@@ -17,4 +17,6 @@
     NSArray *myVenues;
 }
 
+-(FSNetwork *)getFSQ;
+
 @end

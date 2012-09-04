@@ -59,6 +59,7 @@
     if(type == VenueInfo){
         if(result == QuerySuccess){
             //Dictionary object
+            //TODO: Venue more information
             NSLog(@"Returned: %@", [object description]);
         }
     }

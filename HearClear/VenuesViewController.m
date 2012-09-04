@@ -12,9 +12,13 @@
 
 @property (strong, nonatomic) NSArray *venueArray;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) FSNetwork *fsq;
+@property (assign, nonatomic) BOOL isLoading;
 @end
 
 @implementation VenuesViewController
+
+@synthesize fsq;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,6 +27,16 @@
         // Custom initialization
     }
     return self;
+}
+
+-(FSNetwork *)getFSQ{
+    
+    
+    if(fsq == nil){
+        fsq = [[FSNetwork alloc] init];
+        fsq.delegate = self;
+    }
+    return fsq;
 }
 
 - (void)viewDidLoad
@@ -35,7 +49,7 @@
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     
-    [self.locationManager startUpdatingLocation];
+    //[self.locationManager startUpdatingLocation];
     //[self.locationManager startUpdatingLocation];
     //CLLocation *location = [self.locationManager location];
     NSLog(@"View did load fired");
@@ -61,14 +75,18 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     NSLog(@"Updated to location: %@", [newLocation description]);
+    NSLog(@"Updated from old location: %@", [oldLocation description]);
     if([newLocation isKindOfClass:[NSNull class]]){
         
     }else{
+        //Avoid double touching issue
+        if(self.isLoading)
+            return;
+        
         [self.locationManager stopUpdatingLocation];
         
-        FSNetwork *fsq = [[FSNetwork alloc] init];
-        fsq.delegate = self;
-        [fsq venuesForLocation:newLocation];
+        [self.getFSQ venuesForLocation:newLocation];
+        self.isLoading = true;
     }
     
     
@@ -186,6 +204,7 @@
             [self.locationManager stopUpdatingLocation];
 
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.isLoading = NO;
                 [self.tableView.pullToRefreshView stopAnimating];
                 [self.tableView reloadData];
             });

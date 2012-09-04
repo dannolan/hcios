@@ -173,7 +173,7 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
     self.showsPullToRefresh = YES;
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 150, 20)];
-    titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
+    titleLabel.text = NSLocalizedString(@"Pull to update...",);
     titleLabel.font = [UIFont boldSystemFontOfSize:14];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = textColor;
@@ -306,7 +306,7 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
 - (void)startAnimating{
     state = SVPullToRefreshStateLoading;
     
-    titleLabel.text = NSLocalizedString(@"Loading...",);
+    titleLabel.text = NSLocalizedString(@"Loading Venues...",);
     [self.activityIndicatorView startAnimating];
     UIEdgeInsets newInsets = self.originalScrollViewContentInset;
     newInsets.top = self.frame.origin.y*-1+self.originalScrollViewContentInset.top;
@@ -341,14 +341,14 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
     if(pullToRefreshActionHandler) {
         switch (newState) {
             case SVPullToRefreshStateHidden:
-                titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
+                titleLabel.text = NSLocalizedString(@"Pull to update...",);
                 [self.activityIndicatorView stopAnimating];
                 [self setScrollViewContentInset:self.originalScrollViewContentInset];
                 [self rotateArrow:0 hide:NO];
                 break;
                 
             case SVPullToRefreshStateVisible:
-                titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
+                titleLabel.text = NSLocalizedString(@"Pull to update...",);
                 arrow.alpha = 1;
                 [self.activityIndicatorView stopAnimating];
                 [self setScrollViewContentInset:self.originalScrollViewContentInset];
@@ -356,7 +356,7 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
                 break;
                 
             case SVPullToRefreshStateTriggered:
-                titleLabel.text = NSLocalizedString(@"Release to refresh...",);
+                titleLabel.text = NSLocalizedString(@"Release to update...",);
                 [self rotateArrow:M_PI hide:NO];
                 break;
                 
