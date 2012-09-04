@@ -39,17 +39,33 @@
     CLLocation *location = [locationManager location];
     
     NSLog(@"Current location is: %@", [location description]);
+
     
-    FoursquareNetworkController *fsq = [[FoursquareNetworkController alloc] init];
-    fsq.delegate = self;
-    
-    [fsq queryVenuesForLocation:[locationManager location]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"Updated to location: %@", [newLocation description]);
+    if([newLocation isKindOfClass:[NSNull class]]){
+        
+    }else{
+        [locationManager stopUpdatingLocation];
+        FSNetwork *fsq = [[FSNetwork alloc] init];
+        fsq.delegate = self;
+        [fsq venuesForLocation:newLocation];
+
+    }
+    
+    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -164,7 +180,7 @@
 }
 */
 
--(void)foursquareQueryResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object
+-(void)fsResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object
 {
     if(type == VenueSearch){
         if(result == QuerySuccess){

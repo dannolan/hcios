@@ -19,10 +19,14 @@
         NSDictionary *repairedDict = [HCUtils fixJSONDictionary:[foursquareData objectForKey:@"meta"]];
         if([repairedDict hasValueForKey:@"code"])
         {
-            NSNumber *responseCode = [repairedDict valueForKey:@"code"];
-            
-            
-            
+            int responseCode = [repairedDict valueForKey:@"code"];
+            if(responseCode == 200){
+                
+            }else if(responseCode == 404){
+                return NotFound;
+            }else{
+                return Error;
+            }
         }else{
             return Error;
         }
@@ -63,7 +67,8 @@
     //foursquare data is the data straight from the API, we have made sure that we have at least a 200, may be no data though
     for(NSDictionary *v in items){
         //NSLog(@"Venue info is: %@", [v description]);
-        NSDictionary *loc = [v objectForKey:@"location"];
+        NSDictionary *loc = [HCUtils fixJSONDictionary:[v objectForKey:@"location"]];
+        NSLog(@"Outputting the updated dictionary from the API :%@", [loc description]);
         NSString *longitude = [loc objectForKey:@"lng"];
         NSString *latitude = [loc objectForKey:@"lat"];
         //NSString *address = [loc objectForKey:@"address"];

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "HCUtils.h"
 
 typedef enum {
     VenueSearch,
@@ -29,7 +30,12 @@ typedef enum {
 -(void)fsResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object;
 @end
 
+
 @interface FSNetwork : NSObject
+
+@property(nonatomic,weak) id<FSNetworkDelegate> delegate;
+
+
 +(BOOL)hasFoursquareToken;
 +(void)storeFoursquareToken:(NSString *)foursquareToken;
 +(NSString*)foursquareToken;

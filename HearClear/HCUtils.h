@@ -15,6 +15,7 @@ typedef enum{
     Success,
     Forbidden,
     Failure,
+    NotFound,
     Error
 }ResponseType;
 
