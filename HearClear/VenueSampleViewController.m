@@ -63,8 +63,9 @@
 -(IBAction)forceStopMetering:(id)sender{
     [sampleTimer invalidate];
     [recorder stop];
-    [self.presentingViewController dismissModalViewControllerAnimated:YES];
     
+    //TODO: Submission of data using backgrounding APIs
+    [self.presentingViewController dismissModalViewControllerAnimated:YES];
     //TODO: Location updating etc
     
     
