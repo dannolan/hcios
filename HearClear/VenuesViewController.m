@@ -62,7 +62,6 @@
         FSNetwork *fsq = [[FSNetwork alloc] init];
         fsq.delegate = self;
         [fsq venuesForLocation:newLocation];
-
     }
     
     

@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FSNetwork.h"
+#import "MainViewController.h"
 
-@interface VenueDetailControllerViewController : UIViewController
+@interface VenueDetailControllerViewController : UIViewController<FSNetworkDelegate>
 
 @property(strong,nonatomic)NSDictionary *venueDictionary;
 
-
+-(IBAction)performCheckin:(id)sender;
 
 @end

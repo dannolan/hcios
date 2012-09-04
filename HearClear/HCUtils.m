@@ -57,6 +57,13 @@
     
 }
 
++(NSDictionary *)venueInfoFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
+{
+    //NSLog(@"Venue Info: %@", [foursquareData description]);
+    //TODO: Extend
+    return nil;
+}
+
 +(NSArray *)venuesFromFoursquareAPIResponse:(NSDictionary *)foursquareData{
     
     NSMutableArray *mv = [[NSMutableArray alloc]init];
@@ -68,10 +75,9 @@
     for(NSDictionary *v in items){
         //NSLog(@"Venue info is: %@", [v description]);
         NSDictionary *loc = [HCUtils fixJSONDictionary:[v objectForKey:@"location"]];
-        NSLog(@"Outputting the updated dictionary from the API :%@", [loc description]);
+        //NSLog(@"Outputting the updated dictionary from the API :%@", [loc description]);
         NSString *longitude = [loc objectForKey:@"lng"];
         NSString *latitude = [loc objectForKey:@"lat"];
-        //NSString *address = [loc objectForKey:@"address"];
         NSString *ven_id = [v objectForKey:@"id"];
         NSString *ven_dist = [loc objectForKey:@"distance"];
         NSString *ven_name = [v objectForKey:@"name"];

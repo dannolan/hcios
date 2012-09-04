@@ -46,7 +46,36 @@
 //    self.venueLat.text = [self.venueDictionary objectForKey:@"latitude"];
 //    self.venueLon.text = [self.venueDictionary objectForKey:@"longitude"];
 //    self.venueDistance.text = [NSString stringWithFormat:@"%d",[self.venueDictionary objectForKey:@"distance"]];
+    
+    FSNetwork *fsq = [[FSNetwork alloc] init];
+    fsq.delegate = self;
+    [fsq informationForVenue:[self.venueDictionary objectForKey:@"id"]];
 //    
+}
+
+
+-(void)fsResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object
+{
+    if(type == VenueInfo){
+        if(result == QuerySuccess){
+            //Dictionary object
+            NSLog(@"Returned: %@", [object description]);
+        }
+    }
+}
+
+-(IBAction)performCheckin:(id)sender{
+    
+    //TODO: Get the root controller, nav to it and then perform segue with the dictionary
+    NSArray *vcs = self.navigationController.viewControllers;
+    
+    //NSLog(@"Parent controller: %@",[self.navigationController.parentViewController description]);
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    MainViewController *viewC = [vcs objectAtIndex:0];
+    NSLog(@"ViewC is info: %@", [viewC description]);
+    
+    [viewC performSegueWithIdentifier:@"sampleViewSegue" sender:self.venueDictionary];
+    
 }
 
 - (void)viewDidLoad

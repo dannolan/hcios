@@ -25,7 +25,7 @@ typedef enum{
 +(ResponseType)responseTypeForFSResponse:(NSDictionary *)foursquareData;
 +(NSArray *)venuesFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
 +(NSString *)userInfoFromFoursquareResponse:(NSDictionary *)foursquareData;
-+(NSString *)venueInfoFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
++(NSDictionary *)venueInfoFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
 +(NSDictionary *)fixJSONDictionary:(NSDictionary *)JSONDict;
 
 @end

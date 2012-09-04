@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "VenueSampleViewController.h"
 
 @interface MainViewController ()
 
@@ -21,6 +22,15 @@
         // Custom initialization
     }
     return self;
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"sampleViewSegue"]){
+        //we know that we've got an NSDictionary
+        VenueSampleViewController *vc = [segue destinationViewController];
+        
+    }
 }
 
 - (void)viewDidLoad

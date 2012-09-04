@@ -14,7 +14,7 @@
 #define kAPIv2BaseURL @"https://api.foursquare.com/v2"
 #define kVenueSearchURL @"https://api.foursquare.com/v2/venues/search?"
 #define kVenueInfoURL @"https://api.foursquare.com/v2/venues/"
-#define kCheckinURL @"https://api.foursquare.com/v2/"
+#define kCheckinURL @"https://api.foursquare.com/v2/checkins/add"
 #define kUserInfoURL @"https://api.foursquare.com/v2/users/self?"
 
 
@@ -79,13 +79,32 @@
 
 #pragma mark Venue Info
 -(void)informationForVenue:(NSString *)venueId{
+    NSString *venueInfoURL = [NSString stringWithFormat:@"%@%@?oauth_token=%@", kVenueInfoURL, venueId, [FSNetwork foursquareToken]];
     
+    
+    NSURLRequest *venueInfoRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:venueInfoURL]];
+    
+    [NSURLConnection sendAsynchronousRequest:venueInfoRequest queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error)
+        {
+            NSLog(@"Error: %@", [error localizedDescription]);
+            
+        }else{
+            NSError *parseError = nil;
+            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+            NSDictionary *venueInfo = [HCUtils venueInfoFromFoursquareAPIResponse:jsonData];
+            
+            
+            [self.delegate fsResult:QuerySuccess forQueryType:VenueInfo withObject:venueInfo];
+            
+        }
+    }];
 }
 
 
 #pragma mark Checkin
 -(void)checkinForVenue:(NSString *)venueId{
-    
+    //Note: Checkin is a POST transaction
 }
 
 
