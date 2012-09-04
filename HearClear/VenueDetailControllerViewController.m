@@ -10,6 +10,9 @@
 
 @interface VenueDetailControllerViewController ()
 
+@property (weak,nonatomic) IBOutlet UILabel *venueName;
+@property (weak, nonatomic) IBOutlet UILabel *venueDistance;
+
 @end
 
 @implementation VenueDetailControllerViewController
@@ -23,9 +26,33 @@
     return self;
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"Logging the dict yo: %@", [self.venueDictionary description]);
+    
+    NSString *name = [self.venueDictionary objectForKey:@"name"];
+    self.venueName.text = name;
+//    NSString *lon = [self.venueDictionary objectForKey:@"longitude"];
+//    NSString *lat = [self.venueDictionary objectForKey:@"latitude"];
+    NSString *dist = [NSString stringWithFormat:@"%@m", [self.venueDictionary objectForKey:@"distance"]];
+    self.venueDistance.text = dist;
+//    self.venueName.text = name;
+//    self.venueLat.text = lat;
+//    self.venueLon.text = lon;
+    //self.venueDistance.text = dist;
+//    self.venueName.text = [self.venueDictionary objectForKey:@"name"];
+//    self.venueLat.text = [self.venueDictionary objectForKey:@"latitude"];
+//    self.venueLon.text = [self.venueDictionary objectForKey:@"longitude"];
+//    self.venueDistance.text = [NSString stringWithFormat:@"%d",[self.venueDictionary objectForKey:@"distance"]];
+//    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
 }
 

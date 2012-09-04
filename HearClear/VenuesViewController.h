@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "FoursquareNetworkController.h"
+#import "VenueDetailControllerViewController.h"
 
-@interface VenuesViewController : UITableViewController<CLLocationManagerDelegate, FSQVenueDelegate>
+@interface VenuesViewController : UITableViewController<CLLocationManagerDelegate, FSQEngineDelegate>
 {
     CLLocationManager *locationManager;
     NSArray *myVenues;

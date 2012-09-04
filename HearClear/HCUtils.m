@@ -11,6 +11,48 @@
 @implementation HCUtils
 
 
+
+//Response type checking
++(ResponseType)responseTypeForFSResponse:(NSDictionary *)foursquareData
+{
+    if([foursquareData hasValueForKey:@"meta"]){
+        NSDictionary *repairedDict = [HCUtils fixJSONDictionary:[foursquareData objectForKey:@"meta"]];
+        if([repairedDict hasValueForKey:@"code"])
+        {
+            NSNumber *responseCode = [repairedDict valueForKey:@"code"];
+            
+            
+            
+        }else{
+            return Error;
+        }
+        
+        
+    }else{
+     
+        return Error;
+    }
+    
+    return Error;
+}
+
+
+//Fix the NSNULL issue with dictionaries
++(NSDictionary *)fixJSONDictionary:(NSDictionary *)JSONDict{
+    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionaryWithCapacity:[JSONDict count]];
+    
+    NSString *key;
+    for(key in JSONDict){
+        if ([[JSONDict objectForKey:key] isKindOfClass:[NSNull class]]) {
+            [mutableDict setObject:@"" forKey:key];
+        }else{
+            [mutableDict setObject:[JSONDict objectForKey:key] forKey:key];
+        }
+    }
+    return [NSDictionary dictionaryWithDictionary:mutableDict];
+    
+}
+
 +(NSArray *)venuesFromFoursquareAPIResponse:(NSDictionary *)foursquareData{
     
     NSMutableArray *mv = [[NSMutableArray alloc]init];
@@ -37,6 +79,14 @@
     
     [mv sortUsingDescriptors:[NSArray arrayWithObjects:descriptor, nil]];
     return [NSArray arrayWithArray:mv];
+}
+
++(NSString *)userInfoFromFoursquareResponse:(NSDictionary *)foursquareData{
+    
+    
+    NSString *userId = [[[foursquareData objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"id"];
+    
+    return userId;
 }
 
 

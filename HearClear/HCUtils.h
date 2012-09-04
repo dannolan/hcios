@@ -7,9 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDictionary+Utils.h"
+
+
+//Enum for foursquare meta response
+typedef enum{
+    Success,
+    Forbidden,
+    Failure,
+    Error
+}ResponseType;
 
 @interface HCUtils : NSObject
 
 
++(ResponseType)responseTypeForFSResponse:(NSDictionary *)foursquareData;
 +(NSArray *)venuesFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
++(NSString *)userInfoFromFoursquareResponse:(NSDictionary *)foursquareData;
++(NSString *)venueInfoFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
++(NSDictionary *)fixJSONDictionary:(NSDictionary *)JSONDict;
+
 @end

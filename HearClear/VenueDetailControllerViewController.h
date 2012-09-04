@@ -10,4 +10,8 @@
 
 @interface VenueDetailControllerViewController : UIViewController
 
+@property(strong,nonatomic)NSDictionary *venueDictionary;
+
+
+
 @end

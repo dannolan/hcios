@@ -133,9 +133,59 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Venues" id="wSJ-N2-A5B"/>
+                    <connections>
+                        <segue destination="uAv-lU-g4X" kind="push" identifier="venueSelectSegue" id="XOC-FK-ofV"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="764" y="418"/>
+        </scene>
+        <!--Venue Detail Controller View Controller-->
+        <scene sceneID="ZWD-hr-ahm">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ul-Pc-99G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="uAv-lU-g4X" customClass="VenueDetailControllerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="le9-oO-NCY" customClass="VenueDetail">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Venue Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="AqY-Sx-qMo">
+                                <rect key="frame" x="20" y="33" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GSH-GB-TPx">
+                                <rect key="frame" x="20" y="174" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zuw-T5-D50">
+                                <rect key="frame" x="52" y="240" width="216" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Check In to Start Sampling">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Qz-OX-719"/>
+                    <connections>
+                        <outlet property="venueDistance" destination="GSH-GB-TPx" id="Stb-mz-GF4"/>
+                        <outlet property="venueName" destination="AqY-Sx-qMo" id="kdB-PH-TAI"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1191" y="413"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pkl-bB-Wiu">
@@ -169,10 +219,17 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="displayAuthenticateScreen:"/>
-                <relationship kind="action" name="displayCheckinScreen:"/>
                 <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="checkinButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="VenueDetailControllerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueDetailControllerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="venueDistance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLat" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="VenuesViewController" superclassName="UITableViewController">

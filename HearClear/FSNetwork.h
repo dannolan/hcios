@@ -1,8 +1,8 @@
 //
-//  FoursquareNetworkController.h
+//  FSNetwork.h
 //  HearClear
 //
-//  Created by Dan Nolan on 3/09/12.
+//  Created by Dan Nolan on 4/09/12.
 //  Copyright (c) 2012 Dan Nolan. All rights reserved.
 //
 
@@ -23,17 +23,13 @@ typedef enum {
     QueryFailFoursquare
 } QueryResult;
 
-@protocol FSQEngineDelegate <NSObject>
+@protocol FSNetworkDelegate <NSObject>
 
 @required
--(void)foursquareQueryResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object;
+-(void)fsResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object;
 @end
 
-
-@interface FoursquareNetworkController : NSObject
-
-@property (weak, nonatomic) id<FSQEngineDelegate> delegate;
-
+@interface FSNetwork : NSObject
 +(BOOL)hasFoursquareToken;
 +(void)storeFoursquareToken:(NSString *)foursquareToken;
 +(NSString*)foursquareToken;
@@ -42,8 +38,12 @@ typedef enum {
 +(NSString *)userID;
 +(BOOL)hasUserId;
 
++(void)updateUserCredentials;
 
 
+-(void)venuesForLocation:(CLLocation *)location;
+-(void)informationForVenue:(NSString *)venueId;
+-(void)checkinForVenue:(NSString *)venueId;
 
--(void)queryVenuesForLocation:(CLLocation *)location;
+
 @end

@@ -62,6 +62,15 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"venueSelectSegue"]){
+        VenueDetailControllerViewController *details = [segue destinationViewController];
+        NSIndexPath * indexPath = (NSIndexPath*)sender;
+        details.venueDictionary = [self.venueArray objectAtIndex:indexPath.row];
+    }
+}
+
 
 - (void)viewDidUnload
 {
@@ -155,28 +164,45 @@
 }
 */
 
-
-
--(void)FSQVenueReturnError:(int)errorType{
-    
+-(void)foursquareQueryResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object
+{
+    if(type == VenueSearch){
+        if(result == QuerySuccess){
+            self.venueArray = object;
+            [locationManager stopUpdatingLocation];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+            
+            
+        }else{
+            
+        }
+    }
 }
--(void)FSQVenueReturnVenues:(NSArray *)venues{
 
-    self.venueArray = venues;
-    NSLog(@"Venue List: %@", [self.venueArray description]);
-    //Update table on main thread
-    [locationManager stopUpdatingLocation];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
 
-    });
-}
+
+//-(void)FSQVenueReturnError:(int)errorType{
+//    
+//}
+//-(void)FSQVenueReturnVenues:(NSArray *)venues{
+//
+//    self.venueArray = venues;
+//    NSLog(@"Venue List: %@", [self.venueArray description]);
+//    //Update table on main thread
+//    [locationManager stopUpdatingLocation];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.tableView reloadData];
+//
+//    });
+//}
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self performSegueWithIdentifier:@"venueSelectSegue" sender:indexPath];
 }
 
 @end

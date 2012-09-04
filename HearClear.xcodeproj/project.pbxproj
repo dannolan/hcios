@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370151B515F5B0FE004C7E58 /* FSNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 370151B415F5B0FE004C7E58 /* FSNetwork.m */; };
+		370151B915F5B107004C7E58 /* HCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 370151B815F5B107004C7E58 /* HCNetwork.m */; };
+		370151BC15F5B58B004C7E58 /* NSDictionary+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 370151BB15F5B58B004C7E58 /* NSDictionary+Utils.m */; };
 		375971DC15F45DCF00924643 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971DB15F45DCF00924643 /* UIKit.framework */; };
 		375971DE15F45DCF00924643 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971DD15F45DCF00924643 /* Foundation.framework */; };
 		375971E015F45DCF00924643 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971DF15F45DCF00924643 /* CoreGraphics.framework */; };
@@ -31,6 +34,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		370151B315F5B0FE004C7E58 /* FSNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNetwork.h; sourceTree = "<group>"; };
+		370151B415F5B0FE004C7E58 /* FSNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNetwork.m; sourceTree = "<group>"; };
+		370151B715F5B107004C7E58 /* HCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNetwork.h; sourceTree = "<group>"; };
+		370151B815F5B107004C7E58 /* HCNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCNetwork.m; sourceTree = "<group>"; };
+		370151BA15F5B58B004C7E58 /* NSDictionary+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utils.h"; sourceTree = "<group>"; };
+		370151BB15F5B58B004C7E58 /* NSDictionary+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utils.m"; sourceTree = "<group>"; };
 		375971D715F45DCF00924643 /* HearClear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearClear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375971DB15F45DCF00924643 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		375971DD15F45DCF00924643 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +161,8 @@
 			children = (
 				3759721215F45F5C00924643 /* FoursquareNetworkController.h */,
 				3759721315F45F5C00924643 /* FoursquareNetworkController.m */,
+				370151B315F5B0FE004C7E58 /* FSNetwork.h */,
+				370151B415F5B0FE004C7E58 /* FSNetwork.m */,
 			);
 			name = "Foursquare Networking";
 			sourceTree = "<group>";
@@ -159,6 +170,8 @@
 		3759720115F45DF800924643 /* Backend Networking */ = {
 			isa = PBXGroup;
 			children = (
+				370151B715F5B107004C7E58 /* HCNetwork.h */,
+				370151B815F5B107004C7E58 /* HCNetwork.m */,
 			);
 			name = "Backend Networking";
 			sourceTree = "<group>";
@@ -230,6 +243,8 @@
 			children = (
 				37A4564F15F479BD00A76BFF /* HCUtils.h */,
 				37A4565015F479BD00A76BFF /* HCUtils.m */,
+				370151BA15F5B58B004C7E58 /* NSDictionary+Utils.h */,
+				370151BB15F5B58B004C7E58 /* NSDictionary+Utils.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -310,6 +325,9 @@
 				37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */,
 				37A4565115F479BD00A76BFF /* HCUtils.m in Sources */,
 				37A4565415F4968F00A76BFF /* VenueDetailControllerViewController.m in Sources */,
+				370151B515F5B0FE004C7E58 /* FSNetwork.m in Sources */,
+				370151B915F5B107004C7E58 /* HCNetwork.m in Sources */,
+				370151BC15F5B58B004C7E58 /* NSDictionary+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
