@@ -34,6 +34,7 @@
 		37A4565415F4968F00A76BFF /* VenueDetailControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4565315F4968F00A76BFF /* VenueDetailControllerViewController.m */; };
 		37CEF91315F5E978003FF44A /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CEF91215F5E978003FF44A /* SVPullToRefresh.m */; };
 		37CEF91615F5E989003FF44A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CEF91515F5E989003FF44A /* QuartzCore.framework */; };
+		37CEF91815F5F5B6003FF44A /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 37CEF91715F5F5B6003FF44A /* ToDo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		37CEF91115F5E978003FF44A /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		37CEF91215F5E978003FF44A /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
 		37CEF91515F5E989003FF44A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		37CEF91715F5F5B6003FF44A /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				375971F015F45DCF00924643 /* ViewController.h */,
 				375971F115F45DCF00924643 /* ViewController.m */,
 				375971E215F45DCF00924643 /* Supporting Files */,
+				37CEF91715F5F5B6003FF44A /* ToDo */,
 			);
 			path = HearClear;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				3759721115F45E4D00924643 /* AboutViewController.xib in Resources */,
 				37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */,
 				37A4564815F4690800A76BFF /* connect-black.png in Resources */,
+				37CEF91815F5F5B6003FF44A /* ToDo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

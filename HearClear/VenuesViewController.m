@@ -54,7 +54,7 @@
     //CLLocation *location = [self.locationManager location];
     NSLog(@"View did load fired");
     [self.tableView addPullToRefreshWithActionHandler:^{
-        NSLog(@"Viewing location manager: %@", [self.locationManager description]);
+        //NSLog(@"Viewing location manager: %@", [self.locationManager description]);
         [self.locationManager startUpdatingLocation];
         
     }];
@@ -74,8 +74,10 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    NSLog(@"Updated to location: %@", [newLocation description]);
-    NSLog(@"Updated from old location: %@", [oldLocation description]);
+    //NSLog(@"Updated to location: %@", [newLocation description]);
+    //NSLog(@"Updated from old location: %@", [oldLocation description]);
+    NSLog(@"Location information: %f", [newLocation horizontalAccuracy] );
+    
     if([newLocation isKindOfClass:[NSNull class]]){
         
     }else{
@@ -83,16 +85,21 @@
         if(self.isLoading)
             return;
         
-        [self.locationManager stopUpdatingLocation];
+        //[self.locationManager stopUpdatingLocation];
         
         [self.getFSQ venuesForLocation:newLocation];
         self.isLoading = true;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
     
     
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    //Handle GPS error not working
+    
+    //Handle permission denied
+    
     
 }
 
@@ -207,6 +214,7 @@
                 self.isLoading = NO;
                 [self.tableView.pullToRefreshView stopAnimating];
                 [self.tableView reloadData];
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             });
             
             
