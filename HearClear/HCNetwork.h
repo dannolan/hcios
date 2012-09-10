@@ -7,7 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VenueCheckin.h"
+
+typedef enum{
+    PostSuccess,
+    PostFailure
+} PostResult;
+
+typedef enum{
+    VenueLoudness,
+    UserCreate,
+    VenueCreate,
+    CheckinCreate
+}   PostType;
+
+
+@protocol HCNetworkDelegate <NSObject>
+-(void)hcResult:(PostResult)result forPostType:(PostType)type withObject:(id)object;
+@end
 
 @interface HCNetwork : NSObject
+
+@property(nonatomic,weak) id<HCNetworkDelegate> delegate;
+
+
++(void)postCheckinInformation:(VenueCheckin*)checkin withDetails:(NSDictionary *)details;
++(void)checkForExistingCheckins;
+
+
 
 @end

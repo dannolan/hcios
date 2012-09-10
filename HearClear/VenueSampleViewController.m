@@ -7,6 +7,7 @@
 //
 
 #import "VenueSampleViewController.h"
+#import "HCNetwork.h"
 
 @interface VenueSampleViewController ()
 
@@ -78,7 +79,9 @@
     [self.sampleIndicator stopAnimating];
     //TODO: Managing the current sample element
     
-    NSData *data = [self.checkin JSONRepresentation];
+    
+    [HCNetwork postCheckinInformation:self.checkin withDetails:nil];
+    //NSData *data = [self.checkin JSONRepresentation];
     //NSLog(@"Checkin info is: %@", [[self.checkin asDictionary]description]);
     //TODO: Submission of data using backgrounding APIs
     [self.presentingViewController dismissModalViewControllerAnimated:YES];

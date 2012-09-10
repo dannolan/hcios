@@ -8,7 +8,7 @@
 
 #import "VenueCheckin.h"
 #import "TimeSample.h"
-
+#import "FSNetwork.h"
 
 
 @implementation VenueCheckin
@@ -36,8 +36,8 @@
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:[self asDictionary] options:NSJSONWritingPrettyPrinted error:&error];
     
-    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Json value for Sample: %@", string);
+    //NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSLog(@"Json value for Sample: %@", string);
     
     return data;
 }
@@ -67,7 +67,10 @@
     
     NSArray *finishedSampleArray = [NSArray arrayWithArray:sampleArray];
     [sampleDict setObject:finishedSampleArray forKey:@"samples"];
+    
+    [sampleDict setObject:[FSNetwork userID] forKey:@"user"];
     NSDictionary *repDictionary = [[NSDictionary alloc]initWithDictionary:sampleDict];
+    //NSDictionary *totalDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:repDictionary, @"checkin", nil];
     return repDictionary;
 }
 
