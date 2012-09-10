@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "VenueCheckin.h"
+
 @interface VenueSampleViewController : UIViewController
 {
     NSTimer *sampleTimer;
