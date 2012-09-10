@@ -56,6 +56,8 @@
     
     NSString *venueSearchURL = [NSString stringWithFormat:@"%@oauth_token=%@&ll=%@,%@", kVenueSearchURL, [FSNetwork foursquareToken], latValue, lonValue];
     
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSLog(@"API connection queried");
     NSURLRequest *venueSearchRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:venueSearchURL]];
     
@@ -72,6 +74,8 @@
                
                NSArray *venueArray = [HCUtils venuesFromFoursquareAPIResponse:jsonData];
                [self.delegate fsResult:QuerySuccess forQueryType:VenueSearch withObject:venueArray];
+               
+               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                
            });
  
@@ -156,6 +160,7 @@
     
     NSURLRequest *userInfoRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:userQueryString]];
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [NSURLConnection sendAsynchronousRequest:userInfoRequest queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if(error){
             NSLog(@"ERROR!: %@", [error localizedDescription]);
@@ -164,7 +169,9 @@
             NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
             NSString *user_id = [[[jsonData objectForKey:@"response"] objectForKey:@"user"]objectForKey:@"id"];
             [FSNetwork storeUserId:user_id];
-            NSLog(@"User id is: %@", user_id);
+            
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            //NSLog(@"User id is: %@", user_id);
         }
     }];
     
