@@ -57,6 +57,8 @@
     [self.venueMap setRegion:adjustedRegion animated:YES];
     
     [self.venueMap addAnnotation:va];
+    
+    NSLog(@"Annotation info: %@", [va description]);
     //[self.venueMap a]
     //[self.venueMap di]
     //[self.venueMap ]
@@ -78,11 +80,17 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    
+    if([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]
                              initWithAnnotation:annotation
                              reuseIdentifier:nil];
     pin.enabled = YES;
     pin.canShowCallout = YES;
+    pin.animatesDrop = YES;
+    
     return pin;
 }
 
