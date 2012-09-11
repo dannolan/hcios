@@ -34,6 +34,8 @@
     [super viewWillAppear:animated];
     NSLog(@"Logging the dict yo: %@", [self.venueDictionary description]);
     
+    //self.navigationController.navigationBar.
+    
     NSString *name = [self.venueDictionary objectForKey:@"name"];
     self.venueName.text = name;
 //    NSString *lon = [self.venueDictionary objectForKey:@"longitude"];
@@ -87,7 +89,7 @@
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]
                              initWithAnnotation:annotation
                              reuseIdentifier:nil];
-    pin.enabled = YES;
+    
     pin.canShowCallout = YES;
     pin.animatesDrop = YES;
     

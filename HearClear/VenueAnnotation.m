@@ -14,11 +14,11 @@
 {
     if(self = [super init])
     {
-        coordinate = co;
-        title = ti;
-        subtitle = st;
+        self.coordinate = co;
+        self.title = ti;
+        self.subtitle = st;
     }
-    
+
     return self;
 }
 

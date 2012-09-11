@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2tA-qU-IaH">
-                                <rect key="frame" x="79" y="301" width="162" height="37"/>
+                                <rect key="frame" x="79" y="311" width="162" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Check In">
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Sound-3.png" id="LJL-ws-YTI">
-                                <rect key="frame" x="63" y="87" width="195" height="164"/>
+                                <rect key="frame" x="63" y="102" width="195" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="764" y="418"/>
         </scene>
-        <!--Venue Detail Controller View Controller-->
+        <!--Venue Detail Controller View Controller - Venue-->
         <scene sceneID="ZWD-hr-ahm">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ul-Pc-99G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,7 +216,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8Qz-OX-719"/>
+                    <navigationItem key="navigationItem" title="Venue" id="8Qz-OX-719"/>
                     <connections>
                         <outlet property="venueDistance" destination="GSH-GB-TPx" id="Stb-mz-GF4"/>
                         <outlet property="venueMap" destination="ha3-BA-Omn" id="JuW-y2-4NP"/>
