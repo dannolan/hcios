@@ -44,6 +44,10 @@
 		378604A515FEF0800046E5E2 /* Sound-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3786049B15FEF0800046E5E2 /* Sound-3@2x.png */; };
 		378604A615FEF0800046E5E2 /* Sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 3786049C15FEF0800046E5E2 /* Sound.png */; };
 		378604A715FEF0800046E5E2 /* Sound@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3786049D15FEF0800046E5E2 /* Sound@2x.png */; };
+		378604AA15FEF5000046E5E2 /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 378604A815FEF5000046E5E2 /* NavigationBar.png */; };
+		378604AB15FEF5000046E5E2 /* NavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 378604A915FEF5000046E5E2 /* NavigationBar@2x.png */; };
+		378604AD15FEF99D0046E5E2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378604AC15FEF99D0046E5E2 /* MapKit.framework */; };
+		378604B015FEFB2A0046E5E2 /* VenueAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 378604AF15FEFB2A0046E5E2 /* VenueAnnotation.m */; };
 		37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4564315F468A100A76BFF /* VenuesViewController.m */; };
 		37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564515F4690800A76BFF /* connect-black@2x.png */; };
 		37A4564815F4690800A76BFF /* connect-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564615F4690800A76BFF /* connect-black.png */; };
@@ -108,6 +112,11 @@
 		3786049B15FEF0800046E5E2 /* Sound-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sound-3@2x.png"; sourceTree = "<group>"; };
 		3786049C15FEF0800046E5E2 /* Sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sound.png; sourceTree = "<group>"; };
 		3786049D15FEF0800046E5E2 /* Sound@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sound@2x.png"; sourceTree = "<group>"; };
+		378604A815FEF5000046E5E2 /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
+		378604A915FEF5000046E5E2 /* NavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationBar@2x.png"; sourceTree = "<group>"; };
+		378604AC15FEF99D0046E5E2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		378604AE15FEFB2A0046E5E2 /* VenueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueAnnotation.h; sourceTree = "<group>"; };
+		378604AF15FEFB2A0046E5E2 /* VenueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueAnnotation.m; sourceTree = "<group>"; };
 		37A4564215F468A100A76BFF /* VenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
 		37A4564315F468A100A76BFF /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
 		37A4564515F4690800A76BFF /* connect-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-black@2x.png"; sourceTree = "<group>"; };
@@ -127,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378604AD15FEF99D0046E5E2 /* MapKit.framework in Frameworks */,
 				37CEF91615F5E989003FF44A /* QuartzCore.framework in Frameworks */,
 				375971FC15F45DE700924643 /* AudioToolbox.framework in Frameworks */,
 				375971FE15F45DE700924643 /* AVFoundation.framework in Frameworks */,
@@ -143,6 +153,7 @@
 		375971CC15F45DCF00924643 = {
 			isa = PBXGroup;
 			children = (
+				378604AC15FEF99D0046E5E2 /* MapKit.framework */,
 				3786049215FEF05A0046E5E2 /* Default@2x.png */,
 				3786049015FEF0550046E5E2 /* Default.png */,
 				3786048E15FEF0510046E5E2 /* Icon@2x.png */,
@@ -254,6 +265,8 @@
 				37A4564315F468A100A76BFF /* VenuesViewController.m */,
 				37A4565215F4968F00A76BFF /* VenueDetailControllerViewController.h */,
 				37A4565315F4968F00A76BFF /* VenueDetailControllerViewController.m */,
+				378604AE15FEFB2A0046E5E2 /* VenueAnnotation.h */,
+				378604AF15FEFB2A0046E5E2 /* VenueAnnotation.m */,
 			);
 			name = Checkin;
 			sourceTree = "<group>";
@@ -301,6 +314,8 @@
 				3786049D15FEF0800046E5E2 /* Sound@2x.png */,
 				37A4564515F4690800A76BFF /* connect-black@2x.png */,
 				37A4564615F4690800A76BFF /* connect-black.png */,
+				378604A815FEF5000046E5E2 /* NavigationBar.png */,
+				378604A915FEF5000046E5E2 /* NavigationBar@2x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -402,6 +417,8 @@
 				378604A515FEF0800046E5E2 /* Sound-3@2x.png in Resources */,
 				378604A615FEF0800046E5E2 /* Sound.png in Resources */,
 				378604A715FEF0800046E5E2 /* Sound@2x.png in Resources */,
+				378604AA15FEF5000046E5E2 /* NavigationBar.png in Resources */,
+				378604AB15FEF5000046E5E2 /* NavigationBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +447,7 @@
 				3733645715FDB2DB00536403 /* TimeSample.m in Sources */,
 				3733645B15FDB2E300536403 /* VenueCheckin.m in Sources */,
 				3786048B15FEEEF80046E5E2 /* NSDate+Utils.m in Sources */,
+				378604B015FEFB2A0046E5E2 /* VenueAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

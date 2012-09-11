@@ -60,7 +60,7 @@
     recorder.meteringEnabled = YES;
     [recorder record];
     
-    [self.sampleView setAnimationDuration:3];
+    [self.sampleView setAnimationDuration:1.5];
     [self.sampleView setAnimationImages:@[ [UIImage imageNamed:@"Sound-0.png"], [UIImage imageNamed:@"Sound-1.png"], [UIImage imageNamed:@"Sound-2.png"], [UIImage imageNamed:@"Sound-3.png"] ]];
     [self.sampleView startAnimating];
     
@@ -90,7 +90,7 @@
     //NSURL *url = [NSString fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]];
     
     if([[NSFileManager defaultManager]fileExistsAtPath:fileLocation]){
-        NSLog(@"Nuking audio");
+        //NSLog(@"Nuking audio");
         NSError *error = nil;
         [[NSFileManager defaultManager]removeItemAtPath:fileLocation error:&error];
     }

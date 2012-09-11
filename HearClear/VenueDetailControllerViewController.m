@@ -10,8 +10,9 @@
 
 @interface VenueDetailControllerViewController ()
 
-@property (weak,nonatomic) IBOutlet UILabel *venueName;
-@property (weak, nonatomic) IBOutlet UILabel *venueDistance;
+@property (strong,nonatomic) IBOutlet UILabel *venueName;
+@property (strong, nonatomic) IBOutlet UILabel *venueDistance;
+@property(strong, nonatomic) IBOutlet MKMapView *venueMap;
 
 @end
 
@@ -38,6 +39,16 @@
 //    NSString *lat = [self.venueDictionary objectForKey:@"latitude"];
     NSString *dist = [NSString stringWithFormat:@"%@m", [self.venueDictionary objectForKey:@"distance"]];
     self.venueDistance.text = dist;
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = [[self.venueDictionary objectForKey:@"latitude"] floatValue];
+    zoomLocation.longitude= [[self.venueDictionary objectForKey:@"longitude"]floatValue];
+    // 2
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 500, 500);
+    // 3
+    MKCoordinateRegion adjustedRegion = [self.venueMap regionThatFits:viewRegion];
+    
+    [self.venueMap setRegion:adjustedRegion animated:YES];
+    //[self.venueMap ]
 //    self.venueName.text = name;
 //    self.venueLat.text = lat;
 //    self.venueLon.text = lon;
