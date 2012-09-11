@@ -60,7 +60,7 @@
     
     [self.venueMap addAnnotation:va];
     
-    NSLog(@"Annotation info: %@", [va description]);
+    //NSLog(@"Annotation info: %@", [va description]);
     //[self.venueMap a]
     //[self.venueMap di]
     //[self.venueMap ]
@@ -115,7 +115,7 @@
     //NSLog(@"Parent controller: %@",[self.navigationController.parentViewController description]);
     [self.navigationController popToRootViewControllerAnimated:YES];
     MainViewController *viewC = [vcs objectAtIndex:0];
-    NSLog(@"ViewC is info: %@", [viewC description]);
+    //NSLog(@"ViewC is info: %@", [viewC description]);
     //TODO: Put up a 'LOADING' section
     //[viewC per]
     [viewC performSegueWithIdentifier:@"sampleViewSegue" sender:self.venueDictionary];
