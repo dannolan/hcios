@@ -177,12 +177,10 @@
 		375971CC15F45DCF00924643 = {
 			isa = PBXGroup;
 			children = (
-				378604AC15FEF99D0046E5E2 /* MapKit.framework */,
 				3786049215FEF05A0046E5E2 /* Default@2x.png */,
 				3786049015FEF0550046E5E2 /* Default.png */,
 				3786048E15FEF0510046E5E2 /* Icon@2x.png */,
 				3786048C15FEF04E0046E5E2 /* Icon.png */,
-				37CEF91515F5E989003FF44A /* QuartzCore.framework */,
 				375971E115F45DCF00924643 /* HearClear */,
 				375971DA15F45DCF00924643 /* Frameworks */,
 				375971D815F45DCF00924643 /* Products */,
@@ -200,6 +198,8 @@
 		375971DA15F45DCF00924643 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				378604AC15FEF99D0046E5E2 /* MapKit.framework */,
+				37CEF91515F5E989003FF44A /* QuartzCore.framework */,
 				375971F815F45DE700924643 /* AudioToolbox.framework */,
 				375971FA15F45DE700924643 /* AVFoundation.framework */,
 				375971FB15F45DE700924643 /* CoreLocation.framework */,
