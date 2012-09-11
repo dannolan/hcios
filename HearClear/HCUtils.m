@@ -100,5 +100,10 @@
     return userId;
 }
 
++(NSString *)HCID
+{
+    return [[UIDevice currentDevice] uniqueIdentifier];
+}
+
 
 @end

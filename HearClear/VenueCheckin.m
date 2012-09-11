@@ -67,11 +67,12 @@
     
     NSArray *finishedSampleArray = [NSArray arrayWithArray:sampleArray];
     [sampleDict setObject:finishedSampleArray forKey:@"samples"];
-    
-    [sampleDict setObject:[FSNetwork userID] forKey:@"user"];
+    [sampleDict setObject:[[UIDevice currentDevice] model] forKey:@"device"];
+    [sampleDict setObject:[HCUtils HCID] forKey:@"device"];
     NSDictionary *repDictionary = [[NSDictionary alloc]initWithDictionary:sampleDict];
-    //NSDictionary *totalDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:repDictionary, @"checkin", nil];
-    return repDictionary;
+    NSDictionary *totalDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:repDictionary, @"checkin", nil];
+    NSLog(@"Returned dictionary %@", [totalDictionary description]);
+    return totalDictionary;
 }
 
 

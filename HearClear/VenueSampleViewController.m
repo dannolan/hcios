@@ -36,6 +36,7 @@
     soundValues = [[NSMutableArray alloc] init];
     
     NSLog(@"Dictionary provided: %@", [self.venueDictionary description]);
+    [self regionForSample];
     //Settings to make sure AVAudiorecorder sampling is working correctly
     NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:kAudioFormatAppleIMA4],AVFormatIDKey,
@@ -122,6 +123,39 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark CLLocationManager methods
+
+
+-(CLRegion *)regionForSample
+{
+    NSString *lat = [self.venueDictionary objectForKey:@"latitude"];
+    NSString *lon = [self.venueDictionary objectForKey:@"longitude"];
+    float latD = [lat floatValue];
+    float lonD = [lon floatValue];
+    
+    NSLog(@"With current information using doubles: %f, %f", latD, lonD);
+    //NSNumber *latitute = [NSNumber numberWithDouble:[self.venueDictionary objectForKey:@"latitude"]]
+    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(latD, lonD);
+    
+    CLRegion *region = [[CLRegion alloc]initCircularRegionWithCenter:coords radius:100 identifier:@"CheckinLocation"];
+    
+    return region;
+}
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    if([[region identifier] isEqualToString:@"CheckinLocation"])
+    {
+        
+    }
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    
 }
 
 @end

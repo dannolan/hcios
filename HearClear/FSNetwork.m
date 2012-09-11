@@ -16,6 +16,8 @@
 #define kVenueInfoURL @"https://api.foursquare.com/v2/venues/"
 #define kCheckinURL @"https://api.foursquare.com/v2/checkins/add"
 #define kUserInfoURL @"https://api.foursquare.com/v2/users/self?"
+#define kClientID @"VS1C3CG0UFVGIRQLDMN3C5W4Z31SDMEKJVLTUNVWLGJKSKJB"
+#define kClientSecret @"EJDWSNZ2P01YIOV4NEUDJ0WULFATZZRA5BOYD2VSF4TWXTXQ"
 
 
 @implementation FSNetwork
@@ -54,7 +56,7 @@
     NSString *lonValue = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
     
     
-    NSString *venueSearchURL = [NSString stringWithFormat:@"%@oauth_token=%@&ll=%@,%@", kVenueSearchURL, [FSNetwork foursquareToken], latValue, lonValue];
+    NSString *venueSearchURL = [NSString stringWithFormat:@"%@client_id=%@&client_secret=%@&ll=%@,%@", kVenueSearchURL, kClientID, kClientSecret, latValue, lonValue];
     
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -73,6 +75,8 @@
                //TODO: Handle parse error
                
                NSArray *venueArray = [HCUtils venuesFromFoursquareAPIResponse:jsonData];
+               
+               //NSLog(@"Array from API: %@", [venueArray description]);
                [self.delegate fsResult:QuerySuccess forQueryType:VenueSearch withObject:venueArray];
                
                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

@@ -47,7 +47,7 @@
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     
     //[self.locationManager startUpdatingLocation];
     //[self.locationManager startUpdatingLocation];
@@ -77,7 +77,9 @@
     //NSLog(@"Updated to location: %@", [newLocation description]);
     //NSLog(@"Updated from old location: %@", [oldLocation description]);
     NSLog(@"Location information: %f", [newLocation horizontalAccuracy] );
-    
+    //CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:[newLocation coordinate] radius:50.0 identifier:@"CheckedInRegion"];
+    //[manager ]
+    //NSLog(@"Location information: %f", [)
     if([newLocation isKindOfClass:[NSNull class]]){
         
     }else{
@@ -97,7 +99,6 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     //Handle GPS error not working
-    
     //Handle permission denied
     
     

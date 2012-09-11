@@ -28,4 +28,6 @@ typedef enum{
 +(NSDictionary *)venueInfoFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
 +(NSDictionary *)fixJSONDictionary:(NSDictionary *)JSONDict;
 
++(NSString *)HCID;
+
 @end

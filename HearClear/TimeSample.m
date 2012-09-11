@@ -7,6 +7,7 @@
 //
 
 #import "TimeSample.h"
+#import "NSDate+Utils.h"
 @interface TimeSample ()
     @property(nonatomic,assign)double maxPower;
     @property(nonatomic, assign) double avgPower;
@@ -39,7 +40,7 @@
     NSNumber *max = [NSNumber numberWithDouble:self.maxPower];
     //TODO: Fix this so I'm submitting correct information
     //NSNumber *seconds = [NSNumber numberWithInt:[self.date ]]
-    [mutableDict setObject:[self.date description] forKey:@"sampleDate"];
+    [mutableDict setObject:[self.date serverTimeString] forKey:@"sampleDate"];
     [mutableDict setObject:average forKey:@"avgSample"];
     [mutableDict setObject:max forKey:@"maxSample"];
     NSDictionary *returnDict = [[NSDictionary alloc]initWithDictionary:mutableDict];

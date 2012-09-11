@@ -29,6 +29,7 @@
 		3759721115F45E4D00924643 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3759720F15F45E4D00924643 /* AboutViewController.xib */; };
 		3759721415F45F5C00924643 /* FoursquareNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3759721315F45F5C00924643 /* FoursquareNetworkController.m */; };
 		3759721715F4617A00924643 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3759721615F4617A00924643 /* AuthenticationViewController.m */; };
+		3786048B15FEEEF80046E5E2 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3786048A15FEEEF80046E5E2 /* NSDate+Utils.m */; };
 		37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4564315F468A100A76BFF /* VenuesViewController.m */; };
 		37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564515F4690800A76BFF /* connect-black@2x.png */; };
 		37A4564815F4690800A76BFF /* connect-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564615F4690800A76BFF /* connect-black.png */; };
@@ -77,6 +78,8 @@
 		3759721315F45F5C00924643 /* FoursquareNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareNetworkController.m; sourceTree = "<group>"; };
 		3759721515F4617A00924643 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		3759721615F4617A00924643 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		3786048915FEEEF80046E5E2 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		3786048A15FEEEF80046E5E2 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		37A4564215F468A100A76BFF /* VenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
 		37A4564315F468A100A76BFF /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
 		37A4564515F4690800A76BFF /* connect-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-black@2x.png"; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				37A4565015F479BD00A76BFF /* HCUtils.m */,
 				370151BA15F5B58B004C7E58 /* NSDictionary+Utils.h */,
 				370151BB15F5B58B004C7E58 /* NSDictionary+Utils.m */,
+				3786048915FEEEF80046E5E2 /* NSDate+Utils.h */,
+				3786048A15FEEEF80046E5E2 /* NSDate+Utils.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				37CEF91315F5E978003FF44A /* SVPullToRefresh.m in Sources */,
 				3733645715FDB2DB00536403 /* TimeSample.m in Sources */,
 				3733645B15FDB2E300536403 /* VenueCheckin.m in Sources */,
+				3786048B15FEEEF80046E5E2 /* NSDate+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
