@@ -7,6 +7,7 @@
 //
 
 #import "VenueDetailControllerViewController.h"
+#import "VenueAnnotation.h"
 
 @interface VenueDetailControllerViewController ()
 
@@ -42,12 +43,22 @@
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = [[self.venueDictionary objectForKey:@"latitude"] floatValue];
     zoomLocation.longitude= [[self.venueDictionary objectForKey:@"longitude"]floatValue];
+    
+    
+    NSString *distanceString = [NSString stringWithFormat:@"%@ metres away", [self.venueDictionary objectForKey:@"distance"]];
+    VenueAnnotation *va = [[VenueAnnotation alloc] initWithCoordinate:zoomLocation andTitle:[self.venueDictionary objectForKey:@"name"] andSubtitle:distanceString];
+    
+    
     // 2
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 500, 500);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000, 1000);
     // 3
     MKCoordinateRegion adjustedRegion = [self.venueMap regionThatFits:viewRegion];
     
     [self.venueMap setRegion:adjustedRegion animated:YES];
+    
+    [self.venueMap addAnnotation:va];
+    //[self.venueMap a]
+    //[self.venueMap di]
     //[self.venueMap ]
 //    self.venueName.text = name;
 //    self.venueLat.text = lat;
@@ -64,6 +75,16 @@
 //    
 }
 
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]
+                             initWithAnnotation:annotation
+                             reuseIdentifier:nil];
+    pin.enabled = YES;
+    pin.canShowCallout = YES;
+    return pin;
+}
 
 -(void)fsResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object
 {
