@@ -24,4 +24,15 @@
     
 }
 
+-(id)JSONRepresentation
+{
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
+    
+    //NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSLog(@"Json value for Sample: %@", string);
+    
+    return data;
+}
+
 @end
