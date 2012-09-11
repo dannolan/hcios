@@ -29,6 +29,12 @@
     return self;
 }
 
+
+
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -165,6 +171,13 @@
     {
         
     }
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    
+    
     
 }
 

@@ -52,7 +52,7 @@
     
     
     // 2
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000, 1000);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 200, 200);
     // 3
     MKCoordinateRegion adjustedRegion = [self.venueMap regionThatFits:viewRegion];
     
