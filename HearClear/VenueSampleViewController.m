@@ -11,10 +11,10 @@
 
 @interface VenueSampleViewController ()
 
-    @property(nonatomic,weak) IBOutlet UILabel *venueLabel;
-    @property(nonatomic,weak) IBOutlet UILabel *currentRating;
-    @property(nonatomic, weak) IBOutlet UIButton *stopSampling;
-    @property(nonatomic, weak) IBOutlet UIActivityIndicatorView *sampleIndicator;
+    @property(nonatomic,strong) IBOutlet UILabel *venueLabel;
+    @property(nonatomic,strong) IBOutlet UILabel *currentRating;
+    @property(nonatomic, strong) IBOutlet UIButton *stopSampling;
+    @property(nonatomic, strong) IBOutlet UIImageView *sampleView;
     @property(nonatomic, strong) VenueCheckin *checkin;
 @end
 
@@ -59,7 +59,11 @@
     [recorder prepareToRecord];
     recorder.meteringEnabled = YES;
     [recorder record];
-    [self.sampleIndicator startAnimating];
+    
+    [self.sampleView setAnimationDuration:3];
+    [self.sampleView setAnimationImages:@[ [UIImage imageNamed:@"Sound-0.png"], [UIImage imageNamed:@"Sound-1.png"], [UIImage imageNamed:@"Sound-2.png"], [UIImage imageNamed:@"Sound-3.png"] ]];
+    [self.sampleView startAnimating];
+    
     sampleTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
 	// Do any additional setup after loading the view.
 }
@@ -77,11 +81,22 @@
 -(void)stopMetering{
     [sampleTimer invalidate];
     [recorder stop];
-    [self.sampleIndicator stopAnimating];
+    [self.sampleView stopAnimating];
     //TODO: Managing the current sample element
     
     
     [HCNetwork postCheckinInformation:self.checkin withDetails:nil];
+    NSString *fileLocation = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"];
+    //NSURL *url = [NSString fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]];
+    
+    if([[NSFileManager defaultManager]fileExistsAtPath:fileLocation]){
+        NSLog(@"Nuking audio");
+        NSError *error = nil;
+        [[NSFileManager defaultManager]removeItemAtPath:fileLocation error:&error];
+    }
+    //NSError *erro
+    
+    //[NSFileManager r]
     //NSData *data = [self.checkin JSONRepresentation];
     //NSLog(@"Checkin info is: %@", [[self.checkin asDictionary]description]);
     //TODO: Submission of data using backgrounding APIs

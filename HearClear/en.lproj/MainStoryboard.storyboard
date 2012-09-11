@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="79a-vY-Fuy">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
@@ -64,13 +65,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sampling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lnV-hE-5gL">
-                                <rect key="frame" x="20" y="195" width="280" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1CU-3r-j5x">
                                 <rect key="frame" x="96" y="339" width="129" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,16 +80,15 @@
                                     <action selector="forceStopMetering:" destination="TyO-3L-PB7" eventType="touchUpInside" id="aNl-48-nAl"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="ZTN-f7-BVQ">
-                                <rect key="frame" x="150" y="267" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Cvs-i3-r8F">
+                                <rect key="frame" x="63" y="150" width="195" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="currentRating" destination="lnV-hE-5gL" id="pZu-eT-sBl"/>
-                        <outlet property="sampleIndicator" destination="ZTN-f7-BVQ" id="8Cj-QD-SPM"/>
+                        <outlet property="sampleView" destination="Cvs-i3-r8F" id="aqv-gb-ogH"/>
                         <outlet property="stopSampling" destination="1CU-3r-j5x" id="29x-hO-LpM"/>
                         <outlet property="venueLabel" destination="Sly-8g-zbS" id="I0A-dQ-G5s"/>
                     </connections>
@@ -221,6 +214,36 @@
             <point key="canvasLocation" x="-312" y="69"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="checkinButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="VenueDetailControllerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueDetailControllerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performCheckin:"/>
+                <relationship kind="outlet" name="venueDistance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VenueSampleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueSampleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="forceStopMetering:"/>
+                <relationship kind="outlet" name="currentRating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sampleView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="stopSampling" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VenuesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenuesViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
