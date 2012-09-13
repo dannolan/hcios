@@ -60,6 +60,7 @@
 		378604C715FF0A9B0046E5E2 /* Start-Sampling-Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 378604BB15FF0A9B0046E5E2 /* Start-Sampling-Down@2x.png */; };
 		378604C815FF0A9B0046E5E2 /* Start-Sampling.png in Resources */ = {isa = PBXBuildFile; fileRef = 378604BC15FF0A9B0046E5E2 /* Start-Sampling.png */; };
 		378604C915FF0A9B0046E5E2 /* Start-Sampling@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 378604BD15FF0A9B0046E5E2 /* Start-Sampling@2x.png */; };
+		3789B80B16016B4A0083524F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3789B80A16016B4A0083524F /* Default-568h@2x.png */; };
 		37A4564415F468A100A76BFF /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A4564315F468A100A76BFF /* VenuesViewController.m */; };
 		37A4564715F4690800A76BFF /* connect-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564515F4690800A76BFF /* connect-black@2x.png */; };
 		37A4564815F4690800A76BFF /* connect-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4564615F4690800A76BFF /* connect-black.png */; };
@@ -141,6 +142,7 @@
 		378604BB15FF0A9B0046E5E2 /* Start-Sampling-Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start-Sampling-Down@2x.png"; sourceTree = "<group>"; };
 		378604BC15FF0A9B0046E5E2 /* Start-Sampling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start-Sampling.png"; sourceTree = "<group>"; };
 		378604BD15FF0A9B0046E5E2 /* Start-Sampling@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start-Sampling@2x.png"; sourceTree = "<group>"; };
+		3789B80A16016B4A0083524F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		37A4564215F468A100A76BFF /* VenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
 		37A4564315F468A100A76BFF /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
 		37A4564515F4690800A76BFF /* connect-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-black@2x.png"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		375971CC15F45DCF00924643 = {
 			isa = PBXGroup;
 			children = (
+				3789B80A16016B4A0083524F /* Default-568h@2x.png */,
 				378604AC15FEF99D0046E5E2 /* MapKit.framework */,
 				3786049215FEF05A0046E5E2 /* Default@2x.png */,
 				3786049015FEF0550046E5E2 /* Default.png */,
@@ -475,6 +478,7 @@
 				378604C715FF0A9B0046E5E2 /* Start-Sampling-Down@2x.png in Resources */,
 				378604C815FF0A9B0046E5E2 /* Start-Sampling.png in Resources */,
 				378604C915FF0A9B0046E5E2 /* Start-Sampling@2x.png in Resources */,
+				3789B80B16016B4A0083524F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
