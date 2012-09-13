@@ -68,6 +68,8 @@
 		37CEF91315F5E978003FF44A /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CEF91215F5E978003FF44A /* SVPullToRefresh.m */; };
 		37CEF91615F5E989003FF44A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CEF91515F5E989003FF44A /* QuartzCore.framework */; };
 		37CEF91815F5F5B6003FF44A /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 37CEF91715F5F5B6003FF44A /* ToDo */; };
+		37D198571601826D003037FD /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D198541601826D003037FD /* NSString+SHA1.m */; };
+		37D198581601826D003037FD /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D198561601826D003037FD /* UIDevice+UDID.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +155,10 @@
 		37CEF91215F5E978003FF44A /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
 		37CEF91515F5E989003FF44A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		37CEF91715F5F5B6003FF44A /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		37D198531601826D003037FD /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
+		37D198541601826D003037FD /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
+		37D198551601826D003037FD /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
+		37D198561601826D003037FD /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +243,7 @@
 		375971E215F45DCF00924643 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37D1985216018262003037FD /* UDID */,
 				37CEF91015F5E978003FF44A /* SVPullToRefresh */,
 				375971E315F45DCF00924643 /* HearClear-Info.plist */,
 				375971E415F45DCF00924643 /* InfoPlist.strings */,
@@ -390,6 +397,17 @@
 			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
+		37D1985216018262003037FD /* UDID */ = {
+			isa = PBXGroup;
+			children = (
+				37D198531601826D003037FD /* NSString+SHA1.h */,
+				37D198541601826D003037FD /* NSString+SHA1.m */,
+				37D198551601826D003037FD /* UIDevice+UDID.h */,
+				37D198561601826D003037FD /* UIDevice+UDID.m */,
+			);
+			name = UDID;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +522,8 @@
 				3733645B15FDB2E300536403 /* VenueCheckin.m in Sources */,
 				3786048B15FEEEF80046E5E2 /* NSDate+Utils.m in Sources */,
 				378604B015FEFB2A0046E5E2 /* VenueAnnotation.m in Sources */,
+				37D198571601826D003037FD /* NSString+SHA1.m in Sources */,
+				37D198581601826D003037FD /* UIDevice+UDID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

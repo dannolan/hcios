@@ -79,7 +79,8 @@
 +(void)createVenue:(NSDictionary *)venueDict
 {
     NSString *venueQueryString = [NSString stringWithFormat:@"%@", kVenueCreateURL];
-    NSData *postData = (NSData*)[venueDict JSONRepresentation];
+    NSDictionary *postDict = @{ @"venue" : venueDict };
+    NSData *postData = (NSData*)[postDict JSONRepresentation];
     
     NSURL *venueQueryURL = [NSURL URLWithString:venueQueryString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:venueQueryURL];
