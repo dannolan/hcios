@@ -11,5 +11,6 @@
 @interface NSDictionary(Utils)
 
 -(BOOL)hasValueForKey:(NSString *)key;
+-(id)JSONRepresentation;
 
 @end

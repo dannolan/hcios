@@ -10,13 +10,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "VenueCheckin.h"
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface VenueSampleViewController : UIViewController<CLLocationManagerDelegate>
 {
     NSTimer *sampleTimer;
     AVAudioRecorder *recorder;
     NSMutableArray *soundValues;
-    CLLocationManager *locationManager;
     
 }
 

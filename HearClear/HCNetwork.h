@@ -35,5 +35,8 @@ typedef enum{
 +(void)checkForExistingCheckins;
 
 
++(void)venueExists:(NSDictionary*)venueDict;
++(void)createVenue:(NSDictionary *)venueDict;
+
 
 @end

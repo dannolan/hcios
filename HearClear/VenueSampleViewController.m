@@ -8,14 +8,18 @@
 
 #import "VenueSampleViewController.h"
 #import "HCNetwork.h"
+#import "VenueAnnotation.h"
 
 @interface VenueSampleViewController ()
 
     @property(nonatomic,strong) IBOutlet UILabel *venueLabel;
-    @property(nonatomic,strong) IBOutlet UILabel *currentRating;
+    //@property(nonatomic,strong) IBOutlet UILabel *currentRating;
     @property(nonatomic, strong) IBOutlet UIButton *stopSampling;
     @property(nonatomic, strong) IBOutlet UIImageView *sampleView;
+    @property(nonatomic,strong) IBOutlet UILabel *venueDistanceLabel;
     @property(nonatomic, strong) VenueCheckin *checkin;
+    @property(nonatomic, strong) IBOutlet MKMapView *sampleMapView;
+    @property(nonatomic, strong) CLLocationManager *sampleLocationManager;
 @end
 
 @implementation VenueSampleViewController
@@ -42,7 +46,30 @@
     soundValues = [[NSMutableArray alloc] init];
     
     NSLog(@"Dictionary provided: %@", [self.venueDictionary description]);
-    [self regionForSample];
+    self.sampleLocationManager = [[CLLocationManager alloc]init];
+    self.sampleLocationManager.delegate = self;
+    self.sampleLocationManager.distanceFilter = kCLDistanceFilterNone;
+    self.sampleLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
+    [self.sampleLocationManager startUpdatingLocation];
+    //TODO: Monitoring for region
+    
+    NSString *dist = [NSString stringWithFormat:@"%@m", [self.venueDictionary objectForKey:@"distance"]];
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = [[self.venueDictionary objectForKey:@"latitude"] floatValue];
+    zoomLocation.longitude= [[self.venueDictionary objectForKey:@"longitude"]floatValue];
+    NSString *distanceString = @"";
+    VenueAnnotation *va = [[VenueAnnotation alloc] initWithCoordinate:zoomLocation andTitle:[self.venueDictionary objectForKey:@"name"] andSubtitle:distanceString];
+    
+    [self.sampleMapView addAnnotation:va];
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 200, 200);
+    // 3
+    MKCoordinateRegion adjustedRegion = [self.sampleMapView regionThatFits:viewRegion];
+    
+    [self.sampleMapView setRegion:adjustedRegion animated:YES];
+    
+    //[self regionForSample];
     //Settings to make sure AVAudiorecorder sampling is working correctly
     NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:kAudioFormatAppleIMA4],AVFormatIDKey,
@@ -83,8 +110,25 @@
     
 }
 
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    
+    if([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]
+                                initWithAnnotation:annotation
+                                reuseIdentifier:nil];
+    
+    pin.canShowCallout = YES;
+    pin.animatesDrop = YES;
+    
+    return pin;
+}
+
 
 -(void)stopMetering{
+    [self.sampleLocationManager stopUpdatingLocation];
     [sampleTimer invalidate];
     [recorder stop];
     [self.sampleView stopAnimating];
@@ -169,16 +213,27 @@
 {
     if([[region identifier] isEqualToString:@"CheckinLocation"])
     {
-        
+        [manager stopMonitoringForRegion:region];
     }
     
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
+    NSString *lat = [self.venueDictionary objectForKey:@"latitude"];
+    NSString *lon = [self.venueDictionary objectForKey:@"longitude"];
+    float latD = [lat floatValue];
+    float lonD = [lon floatValue];
+    
+    CLLocation *location = [[CLLocation alloc]initWithLatitude:latD longitude:lonD];
+    //CLLocationCoordinate2D vCoords = CLLocationCoordinate2DMake(latD, lonD);
     
     
+    CLLocationDistance meters = [newLocation distanceFromLocation:location]; 
     
+    NSString *distanceString = [NSString stringWithFormat:@"%0.f metres away",meters];
+    
+    self.venueDistanceLabel.text = distanceString;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
