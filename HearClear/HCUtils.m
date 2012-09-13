@@ -7,6 +7,7 @@
 //
 
 #import "HCUtils.h"
+#import "UIDevice+UDID.h"
 
 @implementation HCUtils
 
@@ -102,7 +103,8 @@
 
 +(NSString *)HCID
 {
-    return [[UIDevice currentDevice] uniqueIdentifier];
+    return [[UIDevice currentDevice] UDID];
+    //return [[UIDevice currentDevice] uniqueIdentifier];
 }
 
 
