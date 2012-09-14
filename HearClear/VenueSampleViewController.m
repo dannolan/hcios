@@ -55,6 +55,8 @@
     //TODO: Monitoring for region
     
     NSString *dist = [NSString stringWithFormat:@"%@m", [self.venueDictionary objectForKey:@"distance"]];
+    //TODO: Make the region this value + 50
+    
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = [[self.venueDictionary objectForKey:@"latitude"] floatValue];
     zoomLocation.longitude= [[self.venueDictionary objectForKey:@"longitude"]floatValue];
@@ -154,10 +156,12 @@
 }
 -(void)timerCallback:(NSTimer *)timer
 {
+    //Have it update to the latest voltage level
     [recorder updateMeters];
+    
+    //Pull out the log for the average power of the channel
     double averagePower = [recorder averagePowerForChannel:0];
     double peakPower = [recorder peakPowerForChannel:0];
-    
     
     
     double peakPercentage = pow (10, (0.05 * peakPower));
@@ -166,17 +170,7 @@
     
     
     [self.checkin addSampleWithAvg:percentage andMax:peakPercentage];
-    //TODO: Figure out how to use the peak value to validate the current power level
-    //TODO: Mock up FourSquare integration
-    //TODO: Mock up how to store the values in memory
     NSLog(@"Added sample");
-    //NSLog(@"Percentage linear output: %f peak power output: %f", percentage, peakPercentage);
-    //VolumeSample *vs = [[VolumeSample alloc] initWithMaxValue:peakPercentage andAverageReading:percentage];
-    //[soundValues addObject:vs];
-    //double currentValue = percentage * 80;
-    //currentValue += 40;
-    //NSLog(@"current value is: %f.5", currentValue);
-    //NSString *dbString = [NSString stringWithFormat:@"%.2f dB", currentValue];
 }
 
 - (void)viewDidUnload
@@ -203,8 +197,9 @@
     NSLog(@"With current information using doubles: %f, %f", latD, lonD);
     //NSNumber *latitute = [NSNumber numberWithDouble:[self.venueDictionary objectForKey:@"latitude"]]
     CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(latD, lonD);
-    
-    CLRegion *region = [[CLRegion alloc]initCircularRegionWithCenter:coords radius:100 identifier:@"CheckinLocation"];
+    int curDistance = [[self.venueDictionary objectForKey:@"distance"] intValue];
+    int radius = 100 + curDistance;
+    CLRegion *region = [[CLRegion alloc]initCircularRegionWithCenter:coords radius:radius identifier:@"CheckinLocation"];
     
     return region;
 }
@@ -214,6 +209,8 @@
     if([[region identifier] isEqualToString:@"CheckinLocation"])
     {
         [manager stopMonitoringForRegion:region];
+        //Removes the region monitoring
+        [self stopMetering];
     }
     
 }

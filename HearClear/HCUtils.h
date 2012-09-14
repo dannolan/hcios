@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSDictionary+Utils.h"
+#import "UIDevice-Hardware.h"
 
 
 //Enum for foursquare meta response
@@ -29,5 +30,6 @@ typedef enum{
 +(NSDictionary *)fixJSONDictionary:(NSDictionary *)JSONDict;
 
 +(NSString *)HCID;
++(NSString *)HCDeviceString;
 
 @end

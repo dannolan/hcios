@@ -8,14 +8,23 @@
 
 #import "HCNetwork.h"
 #import "NSDictionary+Utils.h"
+#import "HCUtils.h"
 
 
 #define kBackendCheckinURL  @"http://hearclear.mobi/api/v1/checkin/new"
 #define kVenueCreateURL  @"http://hearclear.mobi/api/v1/venue/new"
 #define kVenueInfoURL  @"http://hearclear.mobi/api/v1/venue/"
+#define kUserExistsURL @"http://hearclear.mobi/api/v1/user/"
+#define kUserCreateURL @"http://hearclear.mobi/api/v1/user/create"
 
 
 @implementation HCNetwork
+
+
+
+
+
+# pragma mark venue information
 
 +(void)postCheckinInformation:(VenueCheckin*)checkin withDetails:(NSDictionary *)details{
     //TODO: Details should have the USER ID but actually not really needed at this stage
@@ -39,12 +48,6 @@
             
         }
     }];
-    
-    
-    
-}
-+(void)checkForExistingCheckins{
-    
 }
 
 +(void)venueExists:(NSDictionary*)venueDict
@@ -97,10 +100,27 @@
             
         }
     }];
+
+}
+
+
+
++(void)userExists{
+    NSString *userIdentifier = [HCUtils HCID];
+    NSString *requestString = [NSString stringWithFormat:@"%@%@", kUserExistsURL,userIdentifier];
+    NSURL *userExistsURL = [NSURL URLWithString:requestString];
     
     
     
 }
+
+
+
++(void)createUser{
+    
+}
+
+
 
 
 @end

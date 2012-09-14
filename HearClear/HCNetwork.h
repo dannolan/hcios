@@ -32,11 +32,13 @@ typedef enum{
 
 
 +(void)postCheckinInformation:(VenueCheckin*)checkin withDetails:(NSDictionary *)details;
-+(void)checkForExistingCheckins;
 
++(void)userExists;
++(void)createUser;
 
 +(void)venueExists:(NSDictionary*)venueDict;
 +(void)createVenue:(NSDictionary *)venueDict;
+-(NSString *)venueInfoForVenue:(NSDictionary *)venueDict;
 
 
 @end

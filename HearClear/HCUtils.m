@@ -103,8 +103,14 @@
 
 +(NSString *)HCID
 {
-    return [[UIDevice currentDevice] UDID];
+    return [[UIDevice currentDevice] platformString];
     //return [[UIDevice currentDevice] uniqueIdentifier];
+}
+
++(NSString *)HCDeviceString{
+    
+    //return [[UIDevice currentDevice] de]
+    
 }
 
 

@@ -71,6 +71,7 @@
 		37CEF91815F5F5B6003FF44A /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 37CEF91715F5F5B6003FF44A /* ToDo */; };
 		37D198571601826D003037FD /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D198541601826D003037FD /* NSString+SHA1.m */; };
 		37D198581601826D003037FD /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D198561601826D003037FD /* UIDevice+UDID.m */; };
+		37D8DCAC1602C5E600D78C04 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D8DCAB1602C5E600D78C04 /* UIDevice-Hardware.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +162,8 @@
 		37D198541601826D003037FD /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		37D198551601826D003037FD /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
 		37D198561601826D003037FD /* UIDevice+UDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UDID.m"; sourceTree = "<group>"; };
+		37D8DCAA1602C5E600D78C04 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		37D8DCAB1602C5E600D78C04 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,7 @@
 		375971E215F45DCF00924643 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37D8DCA81602C5DB00D78C04 /* UIDevice-Ext */,
 				37D1985216018262003037FD /* UDID */,
 				37CEF91015F5E978003FF44A /* SVPullToRefresh */,
 				375971E315F45DCF00924643 /* HearClear-Info.plist */,
@@ -412,6 +416,15 @@
 			name = UDID;
 			sourceTree = "<group>";
 		};
+		37D8DCA81602C5DB00D78C04 /* UIDevice-Ext */ = {
+			isa = PBXGroup;
+			children = (
+				37D8DCAA1602C5E600D78C04 /* UIDevice-Hardware.h */,
+				37D8DCAB1602C5E600D78C04 /* UIDevice-Hardware.m */,
+			);
+			name = "UIDevice-Ext";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +542,7 @@
 				378604B015FEFB2A0046E5E2 /* VenueAnnotation.m in Sources */,
 				37D198571601826D003037FD /* NSString+SHA1.m in Sources */,
 				37D198581601826D003037FD /* UIDevice+UDID.m in Sources */,
+				37D8DCAC1602C5E600D78C04 /* UIDevice-Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
