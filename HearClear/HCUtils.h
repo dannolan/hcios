@@ -31,5 +31,6 @@ typedef enum{
 
 +(NSString *)HCID;
 +(NSString *)HCDeviceString;
++(NSDictionary *)userInfoDictionary;
 
 @end

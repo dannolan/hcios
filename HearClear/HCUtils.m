@@ -101,15 +101,22 @@
     return userId;
 }
 
++(NSDictionary *)userInfoDictionary
+{
+    
+    NSDictionary *userDictionary = @{@"deviceID" : [HCUtils HCID], @"device" : [HCUtils HCDeviceString]};
+    return userDictionary;
+}
+
 +(NSString *)HCID
 {
-    return [[UIDevice currentDevice] platformString];
+    return [[UIDevice currentDevice] UDID];
     //return [[UIDevice currentDevice] uniqueIdentifier];
 }
 
 +(NSString *)HCDeviceString{
     
-    //return [[UIDevice currentDevice] de]
+    return [[UIDevice currentDevice] platformString];
     
 }
 

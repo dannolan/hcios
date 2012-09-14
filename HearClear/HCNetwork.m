@@ -109,7 +109,22 @@
     NSString *userIdentifier = [HCUtils HCID];
     NSString *requestString = [NSString stringWithFormat:@"%@%@", kUserExistsURL,userIdentifier];
     NSURL *userExistsURL = [NSURL URLWithString:requestString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:userExistsURL];
     
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        if([httpResponse statusCode] == 200)
+        {
+            //we're cool
+        }else if([httpResponse statusCode] == 404)
+        {
+            [HCNetwork createUser];
+        }else{
+            //we're boned something is totally fucked
+        }
+        
+    }];
     
     
 }
