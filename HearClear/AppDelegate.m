@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HCNetwork.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,8 @@
     //[UIA]
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance]setTintColor:[UIColor colorWithRed:0.60f green:0.00f blue:0.04f alpha:1.00f]];
+    
+    [HCNetwork userExists];
     //[UIApplication sharedApplication] a
     return YES;
 }

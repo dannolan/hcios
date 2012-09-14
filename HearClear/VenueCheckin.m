@@ -67,7 +67,7 @@
     
     NSArray *finishedSampleArray = [NSArray arrayWithArray:sampleArray];
     [sampleDict setObject:finishedSampleArray forKey:@"samples"];
-    [sampleDict setObject:[[UIDevice currentDevice] model] forKey:@"device"];
+    [sampleDict setObject:[HCUtils HCDeviceString] forKey:@"device"];
     [sampleDict setObject:[HCUtils HCID] forKey:@"deviceID"];
     NSDictionary *repDictionary = [[NSDictionary alloc]initWithDictionary:sampleDict];
     NSDictionary *totalDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:repDictionary, @"checkin", nil];

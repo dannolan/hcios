@@ -113,15 +113,21 @@
     
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-        if([httpResponse statusCode] == 200)
+        if(error)
         {
-            //we're cool
-        }else if([httpResponse statusCode] == 404)
-        {
-            [HCNetwork createUser];
+            
         }else{
-            //we're boned something is totally fucked
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+
+            if([httpResponse statusCode] == 200)
+            {
+                //we're cool
+            }else if([httpResponse statusCode] == 404)
+            {
+                [HCNetwork createUser];
+            }else{
+                //we're boned something is totally fucked
+            }
         }
         
     }];
@@ -132,6 +138,30 @@
 
 
 +(void)createUser{
+    NSDictionary *userCreateDict = @{@"user" : [HCUtils userInfoDictionary]};
+    NSData *postData = (NSData *) [userCreateDict JSONRepresentation];
+    NSString *userCreateString = [NSString stringWithFormat:@"%@", kUserCreateURL];
+    NSURL *createUserURL = [NSURL URLWithString:userCreateString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:createUserURL];
+    [request setHTTPBody:postData];
+    [request setHTTPMethod:@"POST"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error)
+        {
+            
+        }else{
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] == 200){
+                NSLog(@"Yay we did it");
+            }else if([httpResponse statusCode] == 401){
+                NSLog(@"Forbidden to create");
+            }
+            
+        }
+    }];
+    
+    
     
 }
 
