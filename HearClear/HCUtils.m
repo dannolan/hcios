@@ -22,7 +22,7 @@
         {
             int responseCode = [[repairedDict valueForKey:@"code"] intValue];
             if(responseCode == 200){
-                
+                return Success;
             }else if(responseCode == 404){
                 return NotFound;
             }else{
