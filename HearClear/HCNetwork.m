@@ -166,6 +166,11 @@
 }
 
 
+-(NSString *)venueInfoForVenue:(NSDictionary *)venueDict{
+    return nil;
+}
+
+
 
 
 @end

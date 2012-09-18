@@ -20,7 +20,7 @@
         NSDictionary *repairedDict = [HCUtils fixJSONDictionary:[foursquareData objectForKey:@"meta"]];
         if([repairedDict hasValueForKey:@"code"])
         {
-            int responseCode = [repairedDict valueForKey:@"code"];
+            int responseCode = [[repairedDict valueForKey:@"code"] intValue];
             if(responseCode == 200){
                 
             }else if(responseCode == 404){

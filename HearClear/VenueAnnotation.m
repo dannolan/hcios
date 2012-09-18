@@ -14,9 +14,9 @@
 {
     if(self = [super init])
     {
-        self.coordinate = co;
-        self.title = ti;
-        self.subtitle = st;
+        _coordinate = co;
+        _title = ti;
+        _subtitle = st;
     }
 
     return self;
