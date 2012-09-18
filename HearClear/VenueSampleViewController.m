@@ -52,10 +52,6 @@
     self.sampleLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     
     [self.sampleLocationManager startUpdatingLocation];
-    //TODO: Monitoring for region
-    
-    NSString *dist = [NSString stringWithFormat:@"%@m", [self.venueDictionary objectForKey:@"distance"]];
-    //TODO: Make the region this value + 50
     
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = [[self.venueDictionary objectForKey:@"latitude"] floatValue];
@@ -71,7 +67,6 @@
     
     [self.sampleMapView setRegion:adjustedRegion animated:YES];
     
-    //[self regionForSample];
     //Settings to make sure AVAudiorecorder sampling is working correctly
     NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:
                               [NSNumber numberWithInt:kAudioFormatAppleIMA4],AVFormatIDKey,
@@ -81,9 +76,8 @@
                               [NSNumber numberWithBool:NO],AVLinearPCMIsBigEndianKey,
                               [NSNumber numberWithBool:NO],AVLinearPCMIsFloatKey,
                               nil];
-    NSError *error;
+    NSError *error = nil;
     
-    NSLog(@"Venue Info:%@", [self.venueDictionary description]);
     self.venueLabel.text = [self.venueDictionary objectForKey:@"name"];
     self.checkin = [[VenueCheckin alloc] initWithName:[self.venueDictionary objectForKey:@"name"] andVenueID:[self.venueDictionary objectForKey:@"id"] andLatitude:[self.venueDictionary objectForKey:@"latitude"] andLongitude:[self.venueDictionary objectForKey:@"longitude"]];
     
@@ -99,13 +93,13 @@
     [self.sampleView setAnimationImages:@[ [UIImage imageNamed:@"Sound-0.png"], [UIImage imageNamed:@"Sound-1.png"], [UIImage imageNamed:@"Sound-2.png"], [UIImage imageNamed:@"Sound-3.png"] ]];
     [self.sampleView startAnimating];
     
-    sampleTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
-	// Do any additional setup after loading the view.
+    
+    //Sample every 10 seconds for more accurate data
+    sampleTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
 }
 
 -(IBAction)forceStopMetering:(id)sender{
 
-    //TODO: Location updating etc
     [self stopMetering];
     
     
@@ -134,24 +128,15 @@
     [sampleTimer invalidate];
     [recorder stop];
     [self.sampleView stopAnimating];
-    //TODO: Managing the current sample element
     
     
     [HCNetwork postCheckinInformation:self.checkin withDetails:nil];
     NSString *fileLocation = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"];
-    //NSURL *url = [NSString fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]];
     
     if([[NSFileManager defaultManager]fileExistsAtPath:fileLocation]){
-        //NSLog(@"Nuking audio");
         NSError *error = nil;
         [[NSFileManager defaultManager]removeItemAtPath:fileLocation error:&error];
     }
-    //NSError *erro
-    
-    //[NSFileManager r]
-    //NSData *data = [self.checkin JSONRepresentation];
-    //NSLog(@"Checkin info is: %@", [[self.checkin asDictionary]description]);
-    //TODO: Submission of data using backgrounding APIs
     [self.presentingViewController dismissModalViewControllerAnimated:YES];
 }
 -(void)timerCallback:(NSTimer *)timer
@@ -170,7 +155,15 @@
     
     
     [self.checkin addSampleWithAvg:percentage andMax:peakPercentage];
-    NSLog(@"Added sample");
+    //NSLog(@"Added sample");
+    
+    
+    //After 5 minutes stop sampling
+    if([self.checkin.venueSamples count] >= 30){
+        [self stopMetering];
+    }
+    
+    
 }
 
 - (void)viewDidUnload
@@ -194,7 +187,7 @@
     float latD = [lat floatValue];
     float lonD = [lon floatValue];
     
-    NSLog(@"With current information using doubles: %f, %f", latD, lonD);
+    //NSLog(@"With current information using doubles: %f, %f", latD, lonD);
     //NSNumber *latitute = [NSNumber numberWithDouble:[self.venueDictionary objectForKey:@"latitude"]]
     CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(latD, lonD);
     int curDistance = [[self.venueDictionary objectForKey:@"distance"] intValue];

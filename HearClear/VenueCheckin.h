@@ -14,7 +14,7 @@
     NSString *venueID;
     NSString *venueLat;
     NSString *venueLon;
-    NSMutableArray *venueSamples;
+    //NSMutableArray *venueSamples;
 }
 
 
@@ -25,5 +25,7 @@
 -(NSDictionary *)asDictionary;
 
 -(id)JSONRepresentation;
+
+@property(nonatomic,retain) NSMutableArray *venueSamples;
 
 @end

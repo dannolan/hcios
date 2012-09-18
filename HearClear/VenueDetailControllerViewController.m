@@ -8,6 +8,7 @@
 
 #import "VenueDetailControllerViewController.h"
 #import "VenueAnnotation.h"
+#import "HCNetwork.h"
 
 @interface VenueDetailControllerViewController ()
 
@@ -36,6 +37,8 @@
     
     //self.navigationController.navigationBar.
     
+    
+    [HCNetwork venueExists:self.venueDictionary];
     NSString *name = [self.venueDictionary objectForKey:@"name"];
     self.venueName.text = name;
 //    NSString *lon = [self.venueDictionary objectForKey:@"longitude"];
