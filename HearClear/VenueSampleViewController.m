@@ -20,6 +20,11 @@
     @property(nonatomic, strong) VenueCheckin *checkin;
     @property(nonatomic, strong) IBOutlet MKMapView *sampleMapView;
     @property(nonatomic, strong) CLLocationManager *sampleLocationManager;
+    @property(nonatomic,strong) IBOutlet UIButton *silentButton;
+    @property(nonatomic,strong) IBOutlet UIButton *softButton;
+    @property(nonatomic,strong) IBOutlet UIButton *averageButton;
+    @property(nonatomic,strong) IBOutlet UIButton *loudButton;
+    @property(nonatomic,strong) NSNumber *userEstimate;
 @end
 
 @implementation VenueSampleViewController
@@ -240,5 +245,47 @@
 {
     
 }
+
+#pragma mark user button handling issues
+
+-(IBAction)silentButtonPressed:(id)sender{
+    self.loudButton.selected = NO;
+    self.silentButton.selected = YES;
+    self.softButton.selected = NO;
+    self.averageButton.selected = NO;
+    
+    self.userEstimate = [NSNumber numberWithDouble:0.1];
+
+
+}
+
+-(IBAction)softButtonPressed:(id)sender{
+    self.loudButton.selected = NO;
+    self.silentButton.selected = NO;
+    self.softButton.selected = YES;
+    self.averageButton.selected = NO;
+    self.userEstimate = [NSNumber numberWithDouble:0.4];
+}
+
+-(IBAction)averageButtonPressed:(id)sender{
+    self.loudButton.selected = NO;
+    self.silentButton.selected = NO;
+    self.softButton.selected = NO;
+    self.averageButton.selected = YES;
+    self.userEstimate = [NSNumber numberWithDouble:0.6];
+
+}
+
+-(IBAction)loudButtonPressed:(id)sender{
+    self.loudButton.selected = YES;
+    self.silentButton.selected = NO;
+    self.softButton.selected = NO;
+    self.averageButton.selected = NO;
+    self.userEstimate = [NSNumber numberWithDouble:0.8];
+
+}
+
+
+
 
 @end

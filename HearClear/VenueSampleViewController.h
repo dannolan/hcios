@@ -28,4 +28,9 @@
 -(void)timerCallback:(NSTimer *)timer;
 -(IBAction)forceStopMetering:(id)sender;
 -(CLRegion*)regionForSample;
+-(IBAction)silentButtonPressed:(id)sender;
+-(IBAction)softButtonPressed:(id)sender;
+-(IBAction)averageButtonPressed:(id)sender;
+-(IBAction)loudButtonPressed:(id)sender;
+
 @end
