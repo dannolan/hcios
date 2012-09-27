@@ -115,6 +115,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="silentButtonPressed:" destination="TyO-3L-PB7" eventType="touchUpInside" id="HxA-Jx-FZm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ac3-lu-TQF">
                                 <rect key="frame" x="91" y="173" width="65" height="44"/>
@@ -127,6 +130,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="softButtonPressed:" destination="TyO-3L-PB7" eventType="touchUpInside" id="PlD-Xx-Zv7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cFX-h4-c3C">
                                 <rect key="frame" x="164" y="173" width="65" height="44"/>
@@ -139,6 +145,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="averageButtonPressed:" destination="TyO-3L-PB7" eventType="touchUpInside" id="q4l-Ip-3mn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0NH-5j-AhI">
                                 <rect key="frame" x="237" y="173" width="65" height="44"/>
@@ -151,6 +160,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loudButtonPressed:" destination="TyO-3L-PB7" eventType="touchUpInside" id="ZLE-ka-c2f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -314,6 +326,46 @@
         <image name="Start-Sampling-Down.png" width="252" height="46"/>
         <image name="Start-Sampling.png" width="252" height="46"/>
     </resources>
+    <classes>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="checkinButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="VenueDetailControllerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueDetailControllerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="performCheckin:"/>
+                <relationship kind="outlet" name="venueDistance" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VenueSampleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenueSampleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="averageButtonPressed:"/>
+                <relationship kind="action" name="forceStopMetering:"/>
+                <relationship kind="action" name="loudButtonPressed:"/>
+                <relationship kind="action" name="silentButtonPressed:"/>
+                <relationship kind="action" name="softButtonPressed:"/>
+                <relationship kind="outlet" name="averageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loudButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sampleMapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="sampleView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="silentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="softButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopSampling" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="venueDistanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VenuesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenuesViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
