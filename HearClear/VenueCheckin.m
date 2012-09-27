@@ -20,7 +20,7 @@
         venueID = vID;
         venueLat = lat;
         venueLon = lon;
-        venueSamples = [[NSMutableArray alloc]init];
+        self.venueSamples = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -28,7 +28,7 @@
 -(void)addSampleWithAvg:(double)avg andMax:(double)max{
     NSDate *now = [NSDate date];
     TimeSample *sample = [[TimeSample alloc] initWithDate:now andAveragePower:avg andMaximumPower:max];
-    [venueSamples addObject:sample];
+    [self.venueSamples addObject:sample];
 }
 
 -(id)JSONRepresentation
@@ -45,7 +45,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"\nVenue: %@\n VID: %@\n Samples: %@\n", venueName, venueID, [venueSamples description]];
+    return [NSString stringWithFormat:@"\nVenue: %@\n VID: %@\n Samples: %@\n", venueName, venueID, [self.venueSamples description]];
 }
 
 
@@ -60,14 +60,14 @@
     [sampleDict setObject:venueLon forKey:@"lon"];
     NSMutableArray *sampleArray = [[NSMutableArray alloc]init];
     
-    for(TimeSample *ts in venueSamples)
+    for(TimeSample *ts in self.venueSamples)
     {
         [sampleArray addObject:[ts dictionaryForm]];
     }
     
     NSArray *finishedSampleArray = [NSArray arrayWithArray:sampleArray];
     [sampleDict setObject:finishedSampleArray forKey:@"samples"];
-    [sampleDict setObject:[[UIDevice currentDevice] model] forKey:@"device"];
+    [sampleDict setObject:[HCUtils HCDeviceString] forKey:@"device"];
     [sampleDict setObject:[HCUtils HCID] forKey:@"deviceID"];
     NSDictionary *repDictionary = [[NSDictionary alloc]initWithDictionary:sampleDict];
     NSDictionary *totalDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:repDictionary, @"checkin", nil];

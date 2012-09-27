@@ -8,14 +8,23 @@
 
 #import "HCNetwork.h"
 #import "NSDictionary+Utils.h"
+#import "HCUtils.h"
 
 
 #define kBackendCheckinURL  @"http://hearclear.mobi/api/v1/checkin/new"
 #define kVenueCreateURL  @"http://hearclear.mobi/api/v1/venue/new"
 #define kVenueInfoURL  @"http://hearclear.mobi/api/v1/venue/"
+#define kUserExistsURL @"http://hearclear.mobi/api/v1/user/"
+#define kUserCreateURL @"http://hearclear.mobi/api/v1/user/create"
 
 
 @implementation HCNetwork
+
+
+
+
+
+# pragma mark venue information
 
 +(void)postCheckinInformation:(VenueCheckin*)checkin withDetails:(NSDictionary *)details{
     //TODO: Details should have the USER ID but actually not really needed at this stage
@@ -39,12 +48,6 @@
             
         }
     }];
-    
-    
-    
-}
-+(void)checkForExistingCheckins{
-    
 }
 
 +(void)venueExists:(NSDictionary*)venueDict
@@ -97,10 +100,77 @@
             
         }
     }];
+
+}
+
+
+
++(void)userExists{
+    NSString *userIdentifier = [HCUtils HCID];
+    NSString *requestString = [NSString stringWithFormat:@"%@%@", kUserExistsURL,userIdentifier];
+    NSURL *userExistsURL = [NSURL URLWithString:requestString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:userExistsURL];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error)
+        {
+            
+        }else{
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+
+            if([httpResponse statusCode] == 200)
+            {
+                //we're cool
+            }else if([httpResponse statusCode] == 404)
+            {
+                [HCNetwork createUser];
+            }else{
+                //we're boned something is totally fucked
+            }
+        }
+        
+    }];
+    
+    
+}
+
+
+
++(void)createUser{
+    NSDictionary *userCreateDict = @{@"user" : [HCUtils userInfoDictionary]};
+    NSData *postData = (NSData *) [userCreateDict JSONRepresentation];
+    NSString *userCreateString = [NSString stringWithFormat:@"%@", kUserCreateURL];
+    NSURL *createUserURL = [NSURL URLWithString:userCreateString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:createUserURL];
+    [request setHTTPBody:postData];
+    [request setHTTPMethod:@"POST"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error)
+        {
+            
+        }else{
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] == 200){
+                NSLog(@"Yay we did it");
+            }else if([httpResponse statusCode] == 401){
+                NSLog(@"Forbidden to create");
+            }
+            
+        }
+    }];
     
     
     
 }
+
+
+-(NSString *)venueInfoForVenue:(NSDictionary *)venueDict{
+    return nil;
+}
+
+
 
 
 @end

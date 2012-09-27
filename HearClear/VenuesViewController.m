@@ -210,11 +210,7 @@
     if(type == VenueSearch){
         if(result == QuerySuccess){
             self.venueArray = object;
-            NSArray *venArray = [object copy];
             
-            for(NSDictionary *dict in venArray){
-                [HCNetwork venueExists:dict];
-            }
             [self.locationManager stopUpdatingLocation];
 
             dispatch_async(dispatch_get_main_queue(), ^{

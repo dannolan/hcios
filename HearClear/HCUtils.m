@@ -20,9 +20,9 @@
         NSDictionary *repairedDict = [HCUtils fixJSONDictionary:[foursquareData objectForKey:@"meta"]];
         if([repairedDict hasValueForKey:@"code"])
         {
-            int responseCode = [repairedDict valueForKey:@"code"];
+            int responseCode = [[repairedDict valueForKey:@"code"] intValue];
             if(responseCode == 200){
-                
+                return Success;
             }else if(responseCode == 404){
                 return NotFound;
             }else{
@@ -101,10 +101,23 @@
     return userId;
 }
 
++(NSDictionary *)userInfoDictionary
+{
+    
+    NSDictionary *userDictionary = @{@"deviceID" : [HCUtils HCID], @"device" : [HCUtils HCDeviceString]};
+    return userDictionary;
+}
+
 +(NSString *)HCID
 {
     return [[UIDevice currentDevice] UDID];
     //return [[UIDevice currentDevice] uniqueIdentifier];
+}
+
++(NSString *)HCDeviceString{
+    
+    return [[UIDevice currentDevice] platformString];
+    
 }
 
 

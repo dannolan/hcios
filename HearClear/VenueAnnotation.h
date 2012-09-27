@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 @interface VenueAnnotation : NSObject<MKAnnotation>
-{
-    CLLocationCoordinate2D coordinate;
-    NSString *title;
-    NSString *subtitle;
-}
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D)co andTitle:(NSString*)ti andSubtitle:(NSString*)st;
 

@@ -23,29 +23,6 @@
 @implementation FSNetwork
 
 
-#pragma mark User Info
-
-+(void)loadUserCredentials{
-    
-    NSString *queryURL = [NSString stringWithFormat:@"%@%@", kUserInfoURL, [FSNetwork foursquareToken]];
-    
-    NSURLRequest *userInfoRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:queryURL]];
-    
-    [NSURLConnection sendAsynchronousRequest:userInfoRequest queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse *resp, NSData *data, NSError *error) {
-        if(error)
-        {
-            NSLog(@"Error on API: %@", [error localizedDescription]);
-        }else{
-            NSError *parseError = nil;
-            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
-            //TODO
-           
-        }
-        
-        
-    }];
-    
-}
 
 
 
