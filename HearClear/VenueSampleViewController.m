@@ -106,9 +106,6 @@
 -(IBAction)forceStopMetering:(id)sender{
 
     [self stopMetering];
-    
-    
-    
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -236,42 +233,64 @@
     
 }
 
+
+-(void)highlightButton:(UIButton *)b
+{
+    [b setHighlighted:YES];
+}
+
+-(void)disableHighlight:(UIButton *)b
+{
+    [b setHighlighted:NO];
+}
+
 #pragma mark user button handling issues
 
 -(IBAction)silentButtonPressed:(id)sender{
-    self.loudButton.selected = NO;
-    self.silentButton.selected = YES;
-    self.softButton.selected = NO;
-    self.averageButton.selected = NO;
+
     
     self.userEstimate = [NSNumber numberWithDouble:0.1];
+    [self performSelector:@selector(disableHighlight:) withObject:self.softButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.averageButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.loudButton afterDelay:0.0];
+    [self performSelector:@selector(highlightButton:) withObject:sender afterDelay:0.0];
 
 
 }
 
 -(IBAction)softButtonPressed:(id)sender{
-    self.loudButton.selected = NO;
-    self.silentButton.selected = NO;
-    self.softButton.selected = YES;
-    self.averageButton.selected = NO;
+
+    
+    
     self.userEstimate = [NSNumber numberWithDouble:0.4];
+    [self performSelector:@selector(disableHighlight:) withObject:self.silentButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.averageButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.loudButton afterDelay:0.0];
+    [self performSelector:@selector(highlightButton:) withObject:sender afterDelay:0.0];
+
 }
 
 -(IBAction)averageButtonPressed:(id)sender{
-    self.loudButton.selected = NO;
-    self.silentButton.selected = NO;
-    self.softButton.selected = NO;
-    self.averageButton.selected = YES;
+
+    
     self.userEstimate = [NSNumber numberWithDouble:0.6];
+    [self performSelector:@selector(disableHighlight:) withObject:self.softButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.silentButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.loudButton afterDelay:0.0];
+    [self performSelector:@selector(highlightButton:) withObject:sender afterDelay:0.0];
+
 
 }
 
 -(IBAction)loudButtonPressed:(id)sender{
-    self.loudButton.selected = YES;
-    self.silentButton.selected = NO;
-    self.softButton.selected = NO;
-    self.averageButton.selected = NO;
+
+    
     self.userEstimate = [NSNumber numberWithDouble:0.8];
+    [self performSelector:@selector(disableHighlight:) withObject:self.softButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.averageButton afterDelay:0.0];
+    [self performSelector:@selector(disableHighlight:) withObject:self.silentButton afterDelay:0.0];
+    [self performSelector:@selector(highlightButton:) withObject:sender afterDelay:0.0];
+
 
 }
 

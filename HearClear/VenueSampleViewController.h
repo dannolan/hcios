@@ -33,4 +33,10 @@
 -(IBAction)averageButtonPressed:(id)sender;
 -(IBAction)loudButtonPressed:(id)sender;
 
+
+-(void)disableHighlight:(UIButton *)b;
+-(void)highlightButton:(UIButton *)b;
+
+
+
 @end
