@@ -117,6 +117,7 @@
     
     //Sample every 10 seconds for more accurate data
     sampleTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
+    [sampleTimer fire];
 }
 
 -(IBAction)forceStopMetering:(id)sender{

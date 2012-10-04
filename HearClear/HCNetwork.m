@@ -16,6 +16,7 @@
 #define kVenueInfoURL  @"http://hearclear.mobi/api/v1/venue/"
 #define kUserExistsURL @"http://hearclear.mobi/api/v1/user/"
 #define kUserCreateURL @"http://hearclear.mobi/api/v1/user/create"
+#define kVenueVolumeURL @"http://hearclear.mobi/api/v1/venue/"
 
 
 @implementation HCNetwork
@@ -149,8 +150,10 @@
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if(error)
         {
-            
-        }else{
+            NSLog(@"Error in the network querying");
+        }
+        else
+        {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
             if([httpResponse statusCode] == 200){
                 NSLog(@"Yay we did it");
@@ -166,9 +169,59 @@
 }
 
 
--(NSString *)venueInfoForVenue:(NSDictionary *)venueDict{
-    return nil;
+-(void)venueInfoForVenue:(NSDictionary *)venueDict
+{
+    NSString *venueQueryString = [NSString stringWithFormat:@"%@%@", kVenueInfoURL, [venueDict objectForKey:@"id"]];
+    NSURL *venueQueryURL = [NSURL URLWithString:venueQueryString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:venueQueryURL];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error)
+        {
+            
+        }else{
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] != 200){
+                //No volume venue info
+                [self.delegate hcResult:PostFailure forPostType:VenueInformation withObject:nil];
+            }else{
+                NSError *parseError = nil;
+                NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                [self.delegate hcResult:PostSuccess forPostType:VenueInformation withObject:jsonData];
+            }
+        }
+    }];
+    
 }
+
+
+-(void)venueVolumeInfoForVenue:(NSDictionary *)venueDict
+{
+    NSString *venueVolumeQueryString = [NSString stringWithFormat:@"%@%@%@", kVenueInfoURL, [venueDict objectForKey:@"id"], @"/volume"];
+    NSURL *venueQueryURL = [NSURL URLWithString:venueVolumeQueryString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:venueQueryURL];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        if(error)
+        {
+            
+        }else{
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] != 200){
+                //No volume venue info
+                [self.delegate hcResult:PostFailure forPostType:VenueLoudness withObject:nil];
+            }else{
+                NSError *parseError = nil;
+                NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+                [self.delegate hcResult:PostSuccess forPostType:VenueLoudness withObject:jsonData];
+            }
+        }
+    }];
+    
+    
+    
+}
+
+
+
 
 
 

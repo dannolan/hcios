@@ -18,7 +18,8 @@ typedef enum{
     VenueLoudness,
     UserCreate,
     VenueCreate,
-    CheckinCreate
+    CheckinCreate,
+    VenueInformation
 }   PostType;
 
 
@@ -38,7 +39,6 @@ typedef enum{
 
 +(void)venueExists:(NSDictionary*)venueDict;
 +(void)createVenue:(NSDictionary *)venueDict;
--(NSString *)venueInfoForVenue:(NSDictionary *)venueDict;
 
 
 @end
