@@ -13,6 +13,8 @@
 		370151BF15F5C083004C7E58 /* VenueSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370151BE15F5C082004C7E58 /* VenueSampleViewController.m */; };
 		3733645715FDB2DB00536403 /* TimeSample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3733645615FDB2DB00536403 /* TimeSample.m */; };
 		3733645B15FDB2E300536403 /* VenueCheckin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3733645A15FDB2E300536403 /* VenueCheckin.m */; };
+		374D3345161D7BD700ACE98C /* VenueLoudnessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 374D3343161D7BD700ACE98C /* VenueLoudnessViewController.m */; };
+		374D3346161D7BD700ACE98C /* VenueLoudnessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 374D3344161D7BD700ACE98C /* VenueLoudnessViewController.xib */; };
 		375971DC15F45DCF00924643 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971DB15F45DCF00924643 /* UIKit.framework */; };
 		375971DE15F45DCF00924643 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971DD15F45DCF00924643 /* Foundation.framework */; };
 		375971E015F45DCF00924643 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375971DF15F45DCF00924643 /* CoreGraphics.framework */; };
@@ -93,6 +95,9 @@
 		3733645615FDB2DB00536403 /* TimeSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeSample.m; sourceTree = "<group>"; };
 		3733645915FDB2E300536403 /* VenueCheckin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueCheckin.h; sourceTree = "<group>"; };
 		3733645A15FDB2E300536403 /* VenueCheckin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCheckin.m; sourceTree = "<group>"; };
+		374D3342161D7BD700ACE98C /* VenueLoudnessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueLoudnessViewController.h; sourceTree = "<group>"; };
+		374D3343161D7BD700ACE98C /* VenueLoudnessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueLoudnessViewController.m; sourceTree = "<group>"; };
+		374D3344161D7BD700ACE98C /* VenueLoudnessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueLoudnessViewController.xib; sourceTree = "<group>"; };
 		375971D715F45DCF00924643 /* HearClear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearClear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		375971DB15F45DCF00924643 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		375971DD15F45DCF00924643 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -320,6 +325,9 @@
 				37A4565315F4968F00A76BFF /* VenueDetailControllerViewController.m */,
 				378604AE15FEFB2A0046E5E2 /* VenueAnnotation.h */,
 				378604AF15FEFB2A0046E5E2 /* VenueAnnotation.m */,
+				374D3342161D7BD700ACE98C /* VenueLoudnessViewController.h */,
+				374D3343161D7BD700ACE98C /* VenueLoudnessViewController.m */,
+				374D3344161D7BD700ACE98C /* VenueLoudnessViewController.xib */,
 			);
 			name = Checkin;
 			sourceTree = "<group>";
@@ -535,6 +543,7 @@
 				37D019DB16141AEE00415643 /* sound_type_button_highlighted@2x.png in Resources */,
 				37D019DC16141AEE00415643 /* sound_type_button.png in Resources */,
 				37D019DD16141AEE00415643 /* sound_type_button@2x.png in Resources */,
+				374D3346161D7BD700ACE98C /* VenueLoudnessViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +576,7 @@
 				37D198571601826D003037FD /* NSString+SHA1.m in Sources */,
 				37D198581601826D003037FD /* UIDevice+UDID.m in Sources */,
 				37D8DCAC1602C5E600D78C04 /* UIDevice-Hardware.m in Sources */,
+				374D3345161D7BD700ACE98C /* VenueLoudnessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
