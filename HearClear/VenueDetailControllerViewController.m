@@ -15,6 +15,7 @@
 @property (strong,nonatomic) IBOutlet UILabel *venueName;
 @property (strong, nonatomic) IBOutlet UILabel *venueDistance;
 @property(strong, nonatomic) IBOutlet MKMapView *venueMap;
+@property(strong, nonatomic) IBOutlet UIButton *infoButton;
 
 @end
 
@@ -128,6 +129,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImage *backgroundNormal = [[UIImage imageNamed:@"sound_type_button.png"] stretchableImageWithLeftCapWidth:6 topCapHeight:0];
+    UIImage *backgroundHighlighted = [[UIImage imageNamed:@"sound_type_button_highlighted.png"] stretchableImageWithLeftCapWidth:6 topCapHeight:0];
+    
+    [self.infoButton setBackgroundImage:backgroundNormal forState:UIControlStateNormal];
+    [self.infoButton setBackgroundImage:backgroundHighlighted forState:UIControlStateHighlighted];
     
 	// Do any additional setup after loading the view.
 }

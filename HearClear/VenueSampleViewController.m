@@ -50,6 +50,22 @@
     NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.caf"]];
     soundValues = [[NSMutableArray alloc] init];
     
+    
+    UIImage *backgroundNormal = [[UIImage imageNamed:@"sound_type_button.png"] stretchableImageWithLeftCapWidth:6 topCapHeight:0];
+    UIImage *backgroundHighlighted = [[UIImage imageNamed:@"sound_type_button_highlighted.png"] stretchableImageWithLeftCapWidth:6 topCapHeight:0];
+    
+    [self.softButton setBackgroundImage:backgroundNormal forState:UIControlStateNormal];
+    [self.softButton setBackgroundImage:backgroundHighlighted forState:UIControlStateHighlighted];
+    
+    [self.silentButton setBackgroundImage:backgroundNormal forState:UIControlStateNormal];
+    [self.silentButton setBackgroundImage:backgroundHighlighted forState:UIControlStateHighlighted];
+    
+    [self.averageButton setBackgroundImage:backgroundNormal forState:UIControlStateNormal];
+    [self.averageButton setBackgroundImage:backgroundHighlighted forState:UIControlStateHighlighted];
+    
+    [self.loudButton setBackgroundImage:backgroundNormal forState:UIControlStateNormal];
+    [self.loudButton setBackgroundImage:backgroundHighlighted forState:UIControlStateHighlighted];
+    
     NSLog(@"Dictionary provided: %@", [self.venueDictionary description]);
     self.sampleLocationManager = [[CLLocationManager alloc]init];
     self.sampleLocationManager.delegate = self;

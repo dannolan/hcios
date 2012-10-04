@@ -69,6 +69,12 @@
 		37CEF91315F5E978003FF44A /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CEF91215F5E978003FF44A /* SVPullToRefresh.m */; };
 		37CEF91615F5E989003FF44A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CEF91515F5E989003FF44A /* QuartzCore.framework */; };
 		37CEF91815F5F5B6003FF44A /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 37CEF91715F5F5B6003FF44A /* ToDo */; };
+		37D019D3161418F400415643 /* backgroundTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D019D1161418F400415643 /* backgroundTexture.png */; };
+		37D019D4161418F400415643 /* backgroundTexture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D019D2161418F400415643 /* backgroundTexture@2x.png */; };
+		37D019DA16141AEE00415643 /* sound_type_button_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D019D616141AEE00415643 /* sound_type_button_highlighted.png */; };
+		37D019DB16141AEE00415643 /* sound_type_button_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D019D716141AEE00415643 /* sound_type_button_highlighted@2x.png */; };
+		37D019DC16141AEE00415643 /* sound_type_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D019D816141AEE00415643 /* sound_type_button.png */; };
+		37D019DD16141AEE00415643 /* sound_type_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D019D916141AEE00415643 /* sound_type_button@2x.png */; };
 		37D198571601826D003037FD /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D198541601826D003037FD /* NSString+SHA1.m */; };
 		37D198581601826D003037FD /* UIDevice+UDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D198561601826D003037FD /* UIDevice+UDID.m */; };
 		37D8DCAC1602C5E600D78C04 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D8DCAB1602C5E600D78C04 /* UIDevice-Hardware.m */; };
@@ -158,6 +164,12 @@
 		37CEF91215F5E978003FF44A /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
 		37CEF91515F5E989003FF44A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		37CEF91715F5F5B6003FF44A /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		37D019D1161418F400415643 /* backgroundTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundTexture.png; sourceTree = "<group>"; };
+		37D019D2161418F400415643 /* backgroundTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundTexture@2x.png"; sourceTree = "<group>"; };
+		37D019D616141AEE00415643 /* sound_type_button_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_type_button_highlighted.png; sourceTree = "<group>"; };
+		37D019D716141AEE00415643 /* sound_type_button_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound_type_button_highlighted@2x.png"; sourceTree = "<group>"; };
+		37D019D816141AEE00415643 /* sound_type_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_type_button.png; sourceTree = "<group>"; };
+		37D019D916141AEE00415643 /* sound_type_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound_type_button@2x.png"; sourceTree = "<group>"; };
 		37D198531601826D003037FD /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		37D198541601826D003037FD /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		37D198551601826D003037FD /* UIDevice+UDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+UDID.h"; sourceTree = "<group>"; };
@@ -194,6 +206,8 @@
 				3786049015FEF0550046E5E2 /* Default.png */,
 				3786048E15FEF0510046E5E2 /* Icon@2x.png */,
 				3786048C15FEF04E0046E5E2 /* Icon.png */,
+				37D019D1161418F400415643 /* backgroundTexture.png */,
+				37D019D2161418F400415643 /* backgroundTexture@2x.png */,
 				375971E115F45DCF00924643 /* HearClear */,
 				375971DA15F45DCF00924643 /* Frameworks */,
 				375971D815F45DCF00924643 /* Products */,
@@ -341,6 +355,10 @@
 		378604B115FF0A940046E5E2 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				37D019D616141AEE00415643 /* sound_type_button_highlighted.png */,
+				37D019D716141AEE00415643 /* sound_type_button_highlighted@2x.png */,
+				37D019D816141AEE00415643 /* sound_type_button.png */,
+				37D019D916141AEE00415643 /* sound_type_button@2x.png */,
 				378604B215FF0A9B0046E5E2 /* Check-In-Down.png */,
 				378604B315FF0A9B0046E5E2 /* Check-In-Down@2x.png */,
 				378604B415FF0A9B0046E5E2 /* Check-In.png */,
@@ -511,6 +529,12 @@
 				378604C815FF0A9B0046E5E2 /* Start-Sampling.png in Resources */,
 				378604C915FF0A9B0046E5E2 /* Start-Sampling@2x.png in Resources */,
 				3789B80B16016B4A0083524F /* Default-568h@2x.png in Resources */,
+				37D019D3161418F400415643 /* backgroundTexture.png in Resources */,
+				37D019D4161418F400415643 /* backgroundTexture@2x.png in Resources */,
+				37D019DA16141AEE00415643 /* sound_type_button_highlighted.png in Resources */,
+				37D019DB16141AEE00415643 /* sound_type_button_highlighted@2x.png in Resources */,
+				37D019DC16141AEE00415643 /* sound_type_button.png in Resources */,
+				37D019DD16141AEE00415643 /* sound_type_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +614,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -603,15 +627,16 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Nolan";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "87DA3D30-BD08-4E52-9B62-95A1E1A30A00";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
