@@ -116,7 +116,7 @@
     
     
     //Sample every 10 seconds for more accurate data
-    sampleTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
+    sampleTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
 }
 
 -(IBAction)forceStopMetering:(id)sender{
@@ -177,7 +177,7 @@
     
     
     //After 5 minutes stop sampling
-    if([self.checkin.venueSamples count] >= 30){
+    if([self.checkin.venueSamples count] >= 60){
         [self stopMetering];
     }
     
