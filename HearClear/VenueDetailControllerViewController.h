@@ -10,8 +10,9 @@
 #import "FSNetwork.h"
 #import "MainViewController.h"
 #import <MapKit/MapKit.h>
+#import "HCNetwork.h"
 
-@interface VenueDetailControllerViewController : UIViewController<FSNetworkDelegate, MKMapViewDelegate>
+@interface VenueDetailControllerViewController : UIViewController<FSNetworkDelegate, MKMapViewDelegate, HCNetworkDelegate>
 
 @property(strong,nonatomic)NSDictionary *venueDictionary;
 

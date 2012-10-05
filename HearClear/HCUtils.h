@@ -28,7 +28,7 @@ typedef enum{
 +(NSString *)userInfoFromFoursquareResponse:(NSDictionary *)foursquareData;
 +(NSDictionary *)venueInfoFromFoursquareAPIResponse:(NSDictionary *)foursquareData;
 +(NSDictionary *)fixJSONDictionary:(NSDictionary *)JSONDict;
-
++(NSString*)loudnessStringForLoudnessValue:(NSNumber*)loudnessValue;
 +(NSString *)HCID;
 +(NSString *)HCDeviceString;
 +(NSDictionary *)userInfoDictionary;

@@ -7,8 +7,9 @@
 //
 
 #import "VenueLoudnessViewController.h"
-
+#import "HCUtils.h"
 @interface VenueLoudnessViewController ()
+
 
 @end
 
@@ -40,29 +41,45 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+ id key = [self.venueLoudnessDictionary.allKeys objectAtIndex:section];
+    return key;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [self.venueLoudnessDictionary.allKeys count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    id key = [self.venueLoudnessDictionary.allKeys objectAtIndex:section];
+    return [[self.venueLoudnessDictionary objectForKey:key] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    id key = [self.venueLoudnessDictionary.allKeys objectAtIndex:indexPath.section];
+    NSArray *array = [self.venueLoudnessDictionary objectForKey:key];
+    NSDictionary *cellDict = [array objectAtIndex:indexPath.row];
+    NSLog(@"Should be presenting this cell: %@", [cellDict description]);
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    cell.textLabel.text = [cellDict objectForKey:@"time"];
+    NSNumber *number = [NSNumber numberWithFloat:[[cellDict objectForKey:@"average"] floatValue]];
+    cell.detailTextLabel.text = [HCUtils loudnessStringForLoudnessValue:number];
     
     // Configure the cell...
     

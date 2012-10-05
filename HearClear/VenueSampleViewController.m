@@ -115,9 +115,9 @@
     [self.sampleView startAnimating];
     
     
-    //Sample every 10 seconds for more accurate data
-    sampleTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
-    [sampleTimer fire];
+    
+    sampleTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerCallback:) userInfo:nil repeats:YES];
+    //[sampleTimer fire];
 }
 
 -(IBAction)forceStopMetering:(id)sender{
@@ -178,7 +178,7 @@
     
     
     //After 5 minutes stop sampling
-    if([self.checkin.venueSamples count] >= 60){
+    if([self.checkin.venueSamples count] >= 360){
         [self stopMetering];
     }
     
@@ -243,6 +243,11 @@
     NSString *distanceString = [NSString stringWithFormat:@"%0.f metres away",meters];
     
     self.venueDistanceLabel.text = distanceString;
+    
+    if(meters > 200)
+    {
+        [self stopMetering];
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region

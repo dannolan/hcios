@@ -9,6 +9,7 @@
 #import "VenueDetailControllerViewController.h"
 #import "VenueAnnotation.h"
 #import "HCNetwork.h"
+#import "VenueLoudnessViewController.h"
 
 @interface VenueDetailControllerViewController ()
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *venueDistance;
 @property(strong, nonatomic) IBOutlet MKMapView *venueMap;
 @property(strong, nonatomic) IBOutlet UIButton *infoButton;
+@property(strong,nonatomic) NSDictionary *venueLoudness;
 
 @end
 
@@ -38,8 +40,12 @@
     
     //self.navigationController.navigationBar.
     
-    
+    [self.infoButton setHidden:YES];
     [HCNetwork venueExists:self.venueDictionary];
+    HCNetwork *network = [[HCNetwork alloc] init];
+    network.delegate = self;
+    [network venueVolumeInfoForVenue:self.venueDictionary];
+    
     NSString *name = [self.venueDictionary objectForKey:@"name"];
     self.venueName.text = name;
 //    NSString *lon = [self.venueDictionary objectForKey:@"longitude"];
@@ -63,6 +69,9 @@
     [self.venueMap setRegion:adjustedRegion animated:YES];
     
     [self.venueMap addAnnotation:va];
+    
+    
+    //load loudness information into a dict
     
     //NSLog(@"Annotation info: %@", [va description]);
     //[self.venueMap a]
@@ -102,6 +111,7 @@
 
 -(void)fsResult:(QueryResult)result forQueryType:(QueryType)type withObject:(id)object
 {
+   
     if(type == VenueInfo){
         if(result == QuerySuccess){
             //Dictionary object
@@ -124,6 +134,34 @@
     //[viewC per]
     [viewC performSegueWithIdentifier:@"sampleViewSegue" sender:self.venueDictionary];
     
+}
+
+
+-(void)hcResult:(PostResult)result forPostType:(PostType)type withObject:(id)object
+{
+     NSLog(@"Reult is back");
+    if(result == PostFailure)
+    {
+        NSLog(@"Result no info");
+        //handle failure here
+    }else{
+        if(type == VenueLoudness)
+        {
+            NSLog(@"Result is %@", [object description]);
+            //this is what I want I have a dict here
+            self.venueLoudness = [object objectForKey:@"volinfo"];
+            [self.infoButton setHidden:NO];
+            
+        }
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"VenueLoudnessViewSegue"]) {
+        VenueLoudnessViewController *loudView = [segue destinationViewController];
+        loudView.venueLoudnessDictionary = self.venueLoudness;
+    }
 }
 
 - (void)viewDidLoad

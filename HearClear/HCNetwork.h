@@ -39,6 +39,6 @@ typedef enum{
 
 +(void)venueExists:(NSDictionary*)venueDict;
 +(void)createVenue:(NSDictionary *)venueDict;
-
+-(void)venueVolumeInfoForVenue:(NSDictionary *)venueDict;
 
 @end

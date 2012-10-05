@@ -10,4 +10,7 @@
 
 @interface VenueLoudnessViewController : UITableViewController
 
+@property(nonatomic,strong) NSDictionary *venueLoudnessDictionary;
+
+
 @end

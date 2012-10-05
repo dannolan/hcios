@@ -65,6 +65,39 @@
     return nil;
 }
 
++(NSString*)loudnessStringForLoudnessValue:(NSNumber*)loudnessValue
+{
+    float lval = [loudnessValue floatValue];
+    if(lval == 0)
+    {
+        return @"No Data";
+    }else if (lval > 0 && lval <= 0.1)
+    {
+        return @"Silent";
+    }else if(lval > 0.1 && lval <= 0.2)
+    {
+        return @"Soft";
+    }else if(lval > 0.2 && lval <= 0.4)
+    {
+        return @"Low";
+    }else if(lval > 0.4 && lval <= 0.5)
+    {
+        return @"Average";
+    }else if(lval > 0.5 && lval <= 0.65)
+    {
+        return @"Loud";
+    }else if(lval > 0.65 && lval <= 0.8)
+    {
+        return @"Very Loud";
+    }else if(lval > 0.8)
+    {
+        return @"Deafening";
+    }
+    
+    
+    return @"No Data";
+}
+
 +(NSArray *)venuesFromFoursquareAPIResponse:(NSDictionary *)foursquareData{
     
     NSMutableArray *mv = [[NSMutableArray alloc]init];

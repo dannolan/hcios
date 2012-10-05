@@ -75,16 +75,12 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    //NSLog(@"Updated to location: %@", [newLocation description]);
-    //NSLog(@"Updated from old location: %@", [oldLocation description]);
-    NSLog(@"Location information: %f", [newLocation horizontalAccuracy] );
-    //CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:[newLocation coordinate] radius:50.0 identifier:@"CheckedInRegion"];
-    //[manager ]
-    //NSLog(@"Location information: %f", [)
-    if([newLocation isKindOfClass:[NSNull class]]){
-        
-    }else{
-        //Avoid double touching issue
+    
+    //Avoid the cached location
+    if ([newLocation.timestamp timeIntervalSinceNow] > -10.0) // The value is not older than 10 sec.
+    {
+        NSLog(@"Not cached location let us DO this");
+        // do something
         if(self.isLoading)
             return;
         
@@ -93,8 +89,9 @@
         [self.getFSQ venuesForLocation:newLocation];
         self.isLoading = true;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    }else{
+        NSLog(@"Cached location, wait wait wait");
     }
-    
     
 }
 
