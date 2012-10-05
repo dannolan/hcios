@@ -76,6 +76,11 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     
+    NSLog(@"Location accuracy is %f", newLocation.horizontalAccuracy);
+    //Accuracy is key
+    if ((newLocation.horizontalAccuracy < 0) || (newLocation.horizontalAccuracy > 70))
+        return;
+    
     //Avoid the cached location
     if ([newLocation.timestamp timeIntervalSinceNow] > -10.0) // The value is not older than 10 sec.
     {
